@@ -1,7 +1,7 @@
 /* avaliar.js - lógica do checklist AIDP */
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("evaluateBtn").addEventListener("click", evaluateChecklist);
-  document.getElementById("saveBtn").addEventListener("click", saveToLocal);
+  document.getElementById("saveHistoryBtn").addEventListener("click", salvarHistorico);
   document.getElementById("downloadBtn").addEventListener("click", downloadSummary);
 });
 
@@ -441,18 +441,6 @@ function evaluateChecklist() {
 
 
 
-  // <h3>Nutrição e anemia</h3>
-  //       <div class="checkboxes">
-  //       <label><input type="checkbox" name="avaliacao_nutricional" value="emagrecimento_acentuado"> Emagrecimento acentuado visível ou</label>
-  //           <label><input type="checkbox" name="nut" value="edema_ambos_pes"> Edema em ambos os pés.</label>
-  //           <label><input type="checkbox" name="nut" value="peso_idade_menor_menos3"> Peso para a idade &lt;-3 escores z.</label>
-  //           <label><input type="checkbox" name="nut" value="peso_idade_menor_menos2"> Peso para a idade &lt;-2 e ≥-3 escores z.</label>
-  //           <label><input type="checkbox" name="nut" value="tendencia_curva_descendente"> Tendência da curva peso/idade horizontal ou descendente.</label>
-  //           <label><input type="checkbox" name="nut" value="peso_idade_maior_mais2"> Peso para a idade &gt;+2 escores z.</label>
-  //           <label><input type="checkbox" name="nut" value="peso_idade_entre_menos2_mais2"> Peso para a idade ≥-2 e ≤+2 escores z.</label>
-  //           <label><input type="checkbox" name="nut" value="palidez_palmar_grave"> Palidez palmar grave ou Hb abaixo de 5 g/dL.</label>
-  //           <label><input type="checkbox" name="nut" value="palidez_palmar_leve"> Palidez palmar leve ou Hb de 5 g/dL a 10,9 g/dL.</label>
-  //       </div>
 
   // 6) Caso leve / sem sinais de gravidade -> verde
   badge.classList.add("verde");

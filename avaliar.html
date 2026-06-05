@@ -8,6 +8,8 @@
   <script defer src="js/avaliar.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="js/gerarPDF.js"></script>
+  <script type="module" src="js/protegerPagina.js"></script>
+  <script type="module" src="js/salvarHistorico.js"></script>
 </head>
 <body>
   <main class="container">
@@ -180,7 +182,7 @@
 
           <div class="actions">
             <button class="btn" id="evaluateBtn" type="button">Avaliar</button>
-            <button class="btn ghost" id="saveBtn" type="button">Salvar no navegador</button>
+            <button id="saveHistoryBtn" class="btn ghost" type="button">Salvar Consulta</button>
             <button class="btn ghost" id="downloadBtn" type="button">Baixar resumo</button>
             <button class="btn ghost" type="btn-voltar" onclick="window.location.href='index.html'">Voltar</button>
           </div>
@@ -201,6 +203,7 @@
       
     </section>
   </main>
+  
 </body>
 </html>
 

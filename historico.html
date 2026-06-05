@@ -1,21 +1,27 @@
+<!-- historico.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Histórico de Atendimentos</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Histórico de Atendimentos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/protegerPagina.js"></script>
 </head>
 <body>
-
-<header>
-    <h1>Histórico de Atendimentos</h1>
-</header>
-
-<main class="content">
-    <p>Aqui ficará o histórico de atendimentos registrados.</p>
-
-    <a href="index.html" class="btn-voltar">Voltar</a>
-</main>
-
+  <header><h1>Histórico de Atendimentos</h1></header>
+  <main class="content">
+    <table id="historicoTable">
+      <thead>
+        <tr>
+          <th>Data/Hora</th><th>Paciente</th><th>Classificação</th><th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linhas serão preenchidas dinamicamente -->
+      </tbody>
+    </table>
+    <button class="btn ghost" onclick="window.location='index.html'">Voltar</button>
+  </main>
+  <script type="module" src="js/historico.js"></script>
 </body>
 </html>
