@@ -449,24 +449,25 @@ function evaluateChecklist() {
   advice.innerText = `Conduta: Tratamento domiciliar, orientar sinais de alarme e retorno imediato se houver piora. Observações: ${obs || '—'}`;
 }
 
-/* Salva resumo simples no localStorage (lista de atendimentos) */
-function saveToLocal() {
-  const nome = document.getElementById("nome").value.trim() || "sem-nome";
-  const data = {
-    timestamp: new Date().toISOString(),
-    nome,
-    idade: document.getElementById("idade").value.trim(),
-    rr: document.getElementById("rr").value || null,
-    o2: document.getElementById("o2").value || null,
-    resultAt: document.getElementById("classificationText").innerText,
-    notes: document.getElementById("obs").value || ""
-  };
-  const key = "aidp_atendimentos_v1";
-  const list = JSON.parse(localStorage.getItem(key) || "[]");
-  list.push(data);
-  localStorage.setItem(key, JSON.stringify(list));
-  alert("Atendimento salvo localmente no navegador.");
-}
+//Não uso mais, depois excluir
+// /* Salva resumo simples no localStorage (lista de atendimentos) */
+// function saveToLocal() {
+//   const nome = document.getElementById("nome").value.trim() || "sem-nome";
+//   const data = {
+//     timestamp: new Date().toISOString(),
+//     nome,
+//     idade: document.getElementById("idade").value.trim(),
+//     rr: document.getElementById("rr").value || null,
+//     o2: document.getElementById("o2").value || null,
+//     resultAt: document.getElementById("classificationText").innerText,
+//     notes: document.getElementById("obs").value || ""
+//   };
+//   const key = "aidp_atendimentos_v1";
+//   const list = JSON.parse(localStorage.getItem(key) || "[]");
+//   list.push(data);
+//   localStorage.setItem(key, JSON.stringify(list));
+//   alert("Atendimento salvo localmente no navegador.");
+// }
 
 /* Baixa um resumo do atendimento atual em .txt */
 function downloadSummary() {

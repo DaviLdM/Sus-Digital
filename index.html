@@ -5,34 +5,73 @@
     <title>AIDP Care System</title>
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/logout.js"></script>
+    <script type="module" src="js/authState.js"></script>
 </head>
 <body>
 
-    <header>
-        <h1>AIDP Care System</h1>
+    <header class="topo">
+
+        <!-- <div></div>
+
+        <img
+            src="images/logoPricipal.png"
+            alt="Logo PET Saúde Digital"
+            class="logo"
+        > -->
+        <div></div>
+        <div></div>
+
+        <div id="guestMenu">
+
+            <a href="login.html" class="btn-header">
+                Login
+            </a>
+
+            <a href="cadastro.html" class="btn-header cadastro">
+                Cadastrar
+            </a>
+
+        </div>
+
+        <div id="userMenu" style="display:none">
+
+            <span id="userName"></span>
+
+            <button id="logoutBtn" class="btn-header">
+                Sair
+            </button>
+
+        </div>
+
     </header>
 
     <main class="container">
 
-        <a href="avaliar.html" class="card">
+        <div></div>
+
+        <img
+            src="images/logoPrincial.png"
+            alt="Logo PET Saúde Digital"
+            class="logo"
+        >
+
+        <a href="avaliar.html" class="menu-card">
             Avaliar e Classificar
         </a>
 
-        <a href="material.html" class="card">
+        <a href="material.html" class="menu-card">
             Material Técnico
         </a>
 
-        <a href="historico.html" class="card">
+        <a href="historico.html" class="menu-card">
             Histórico de Atendimentos
         </a>
 
-         <a href="quemSomos.html" class="card">
+         <a href="quemSomos.html" class="menu-card">
             Quem Somos
         </a>
 
-        <button id="logoutBtn" class="btn ghost">
-            Sair
-        </button>
+        
     </main>
 
 </body>

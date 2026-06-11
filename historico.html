@@ -8,7 +8,14 @@
   <script type="module" src="js/protegerPagina.js"></script>
 </head>
 <body>
-  <header><h1>Histórico de Atendimentos</h1></header>
+  <header class="header-secundario">
+    <img
+      src="images/logoSecundaria.png"
+      alt="Logo PET Saúde Digital"
+      class="logoSecundaria"
+    >
+    <h1>Histórico de Atendimentos</h1>
+  </header>
   <main class="content">
     <table id="historicoTable">
       <thead>
@@ -20,7 +27,7 @@
         <!-- Linhas serão preenchidas dinamicamente -->
       </tbody>
     </table>
-    <button class="btn ghost" onclick="window.location='index.html'">Voltar</button>
+    <a href="index.html" class="btn-voltar">Voltar</a>
   </main>
   <script type="module" src="js/historico.js"></script>
 </body>

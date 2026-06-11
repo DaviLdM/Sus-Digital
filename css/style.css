@@ -6,15 +6,89 @@
 }
 
 body {
-    background-color: #f4f6f9;
+  background-image: url("../images/fundo.png");
+  background-repeat: repeat;
+  background-position: top left;
+  background-attachment: fixed;
+
+  min-height: 100vh;
 }
 
 header {
-    background-color: #b30000;
-    color: white;
+    background: #fcb434;
+    color: #384c84;
     text-align: center;
     padding: 20px;
 }
+
+
+
+/* otoes cadastro e login */
+/* Header */
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 30px;
+
+    background: #fcb434;
+}
+
+.topo h1 {
+    margin: 0;
+}
+
+
+
+/* =========================
+   BOTÕES LOGIN E CADASTRO
+========================= */
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+#guestMenu,
+#userMenu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-header {
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #384c84;
+    color: #fcb434;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn-header:hover {
+    transform: translateY(-2px);
+}
+
+.btn-header.cadastro {
+    background: #384c84;
+}
+
+#userName {
+    font-weight: bold;
+    color: #384c84;
+}
+
 
 .container {
     width: 80%;
@@ -25,26 +99,32 @@ header {
     gap: 30px;
 }
 
-.card {
+.menu-card {
     display: block;
-    background-color: white;
+
+    background: #384c84;
+
+    color: #fcb434;
+
     padding: 25px;
+
     text-align: left;
+
     text-decoration: none;
-    color: #b30000;
+
     font-size: 18px;
-    border-radius: 8px;
-    border: 2px solid #b30000;
-    transition: 0.3s;
+
+    border-radius: 10px;
+
+    border: 2px solid #fcb434;
+
+    box-shadow: 0 2px 6px rgba(18,35,57,0.15);
+
+    transition: 0.2s;
 }
 
-.card {
-  background: #f7f9fb;
-  border: 1px solid #e6eef6;
-  padding: 18px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(18,35,57,0.04);
-  transition: none; /* importante */
+.menu-card:hover {
+    transform: translateY(-3px);
 }
 
 .content {
@@ -57,8 +137,8 @@ header {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #b30000;
-    color: white;
+    background: #384c84;
+    color: #fcb434;
     text-decoration: none;
     border-radius: 5px;
 }
@@ -159,4 +239,45 @@ textarea { resize:vertical; }
 @media (max-width:600px) {
   .row { flex-direction:column; }
   .checkboxes { grid-template-columns: 1fr; }
+}
+
+
+
+
+/* =========================
+   header secundário para material técnico e histórico
+========================= */
+
+.header-secundario {
+    position: relative;
+
+    background: #fcb434;
+
+    padding: 30px 20px;
+
+    text-align: center;
+}
+
+.header-secundario h1 {
+    margin: 0;
+
+    color: #384c84;
+
+    font-size: 3rem;
+
+    font-weight: bold;
+}
+
+.logoSecundaria {
+    position: absolute;
+
+    left: 25px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    height: 100px;
+
+    width: auto;
 }
