@@ -6,6 +6,8 @@
   <title>Histórico de Atendimentos</title>
   <link rel="stylesheet" href="css/style.css">
   <script type="module" src="js/protegerPagina.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script type="module" src="js/historico.js"></script>
 </head>
 <body>
   <header class="header-secundario">
@@ -17,17 +19,13 @@
     <h1>Histórico de Atendimentos</h1>
   </header>
   <main class="content">
-    <table id="historicoTable">
-      <thead>
-        <tr>
-          <th>Data/Hora</th><th>Paciente</th><th>Classificação</th><th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Linhas serão preenchidas dinamicamente -->
-      </tbody>
-    </table>
+
+    <div id="historicoLista" class="historico-list">
+        <!-- Os cards serão criados pelo JS -->
+    </div>
+
     <a href="index.html" class="btn-voltar">Voltar</a>
+
   </main>
   <script type="module" src="js/historico.js"></script>
 </body>
