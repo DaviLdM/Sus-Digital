@@ -282,7 +282,7 @@ function evaluateChecklist() {
                                     dose de um antimalárico recomendado.
                                   • Dar a primeira dose de um antibiótico recomendado.
                                   • Tratar a criança para evitar hipoglicemia.
-                                  • Dar antitérmico se temperatura for ≥ 38,0º C.
+                                  • Dar antitérmico se temperatura for maior que 38,0º C.
                                   • Referir URGENTEMENTE ao hospital.`;
        
     }
@@ -292,7 +292,7 @@ function evaluateChecklist() {
       document.getElementById("feverClassification").innerText = `Classificação: DOENÇA FEBRIL MUITO GRAVE`;
       document.getElementById("feverAdvice").innerText = `Conduta: • Dar a primeira dose de um antibiótico recomendado.
                                   • Tratar a criança para evitar hipoglicemia.
-                                  • Dar antitérmico se temperatura for ≥ 38,0º C.
+                                  • Dar antitérmico se temperatura for maior que 38,0º C.
                                   • Referir URGENTEMENTE ao hospital.`;
       
     }
@@ -301,7 +301,7 @@ function evaluateChecklist() {
       badgeFebre.innerText = "🟡 ATENÇÃO";
       document.getElementById("feverClassification").innerText = `Classificação: MALÁRiA `;
       document.getElementById("feverAdvice").innerText = `Conduta: •  Tratar com antimalárico oral recomendado.
-                                  • Dar antitérmico se temperatura for ≥38ºC.
+                                  • Dar antitérmico se temperatura for maior que 38,0º C.
                                   • Informar a mãe sobre quando retornar imediatamente.
                                   • Seguimento em três dias.
                                   • Se tem tido febre todos os dias por mais de cinco dias,
@@ -312,7 +312,7 @@ function evaluateChecklist() {
       badgeFebre.className = "badge verde";
       badgeFebre.innerText = "🟢 ESTÁVEL";
       document.getElementById("feverClassification").innerText = `Classificação: DOENÇA FEBRIL`;
-      document.getElementById("feverAdvice").innerText = `Conduta: • Dar antitérmico se temperatura for ≥38,0º.
+      document.getElementById("feverAdvice").innerText = `Conduta: • Dar antitérmico se temperatura for maior que 38,0º.
                                   • Informar a mãe/pai/acompanhante sobre quando
                                   retornar imediatamente.
                                   • Seguimento em dois dias se a febre persistir.

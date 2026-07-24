@@ -1,0 +1,224 @@
+/* =========================
+   PÁGINA DE CADASTRO
+========================= */
+
+.cadastro-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  padding: 32px 20px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.cadastro-page .container {
+  width: 100%;
+  max-width: 560px;
+}
+
+
+/* =========================
+   CARTÃO
+========================= */
+
+.cadastro-card {
+  width: 100%;
+  padding: 34px;
+
+  border: 1px solid var(--borda-suave);
+  border-radius: 16px;
+
+  background: var(--fundo-claro);
+
+  box-shadow: var(--sombra-suave);
+}
+
+.cadastro-card h1,
+.cadastro-card h2 {
+  margin-bottom: 8px;
+
+  color: var(--azul-principal);
+
+  font-size: 30px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.cadastro-descricao {
+  margin-bottom: 26px;
+
+  color: var(--texto-secundario);
+
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+/* =========================
+   CAMPOS
+========================= */
+
+.campo-formulario {
+  margin-bottom: 18px;
+}
+
+.campo-formulario label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #2f4a57;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+  width: 100%;
+  min-height: 46px;
+
+  padding: 11px 13px;
+
+  border: 1px solid var(--borda-clara);
+  border-radius: 9px;
+
+  background: var(--branco);
+  color: #1b3542;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+  border-color: var(--azul-principal);
+
+  box-shadow:
+    0 0 0 3px rgba(56, 76, 132, 0.12);
+}
+
+.campo-formulario input::placeholder {
+  color: #9aa8b3;
+}
+
+.campo-formulario select:invalid {
+  color: #87949d;
+}
+
+.ajuda-campo {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #71808c;
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.cadastro-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.cadastro-submit,
+.cadastro-voltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 46px;
+
+  border-radius: 9px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.cadastro-submit {
+  border: 1px solid var(--azul-principal);
+
+  background: var(--azul-principal);
+  color: var(--branco);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.cadastro-submit:hover {
+  transform: translateY(-1px);
+}
+
+.cadastro-submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.cadastro-voltar {
+  border: 1px solid #d0e3ea;
+
+  background: transparent;
+  color: var(--azul-principal);
+}
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+.cadastro-page .mensagem-formulario {
+  min-height: 20px;
+  margin-top: 16px;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 600px) {
+  .cadastro-page {
+    align-items: flex-start;
+    padding: 18px 12px;
+  }
+
+  .cadastro-card {
+    padding: 24px 18px;
+    border-radius: 12px;
+  }
+
+  .cadastro-card h1,
+  .cadastro-card h2 {
+    font-size: 25px;
+  }
+}

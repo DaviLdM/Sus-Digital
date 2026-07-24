@@ -1,78 +1,573 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <title>AIDP Care System</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/logout.js"></script>
-    <script type="module" src="js/authState.js"></script>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>suAIDPI | Início</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/home.css"
+  >
+
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+  ></script>
 </head>
-<body>
 
-    <header class="topo">
+<body class="home-page">
 
-        <!-- <div></div>
+  <div class="app-shell">
 
+    <!-- =========================
+        MENU LATERAL
+    ========================== -->
+
+    <aside
+      class="sidebar"
+      id="sidebar"
+    >
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Página inicial"
+      >
         <img
-            src="images/logoPricipal.png"
-            alt="Logo PET Saúde Digital"
-            class="logo"
-        > -->
-        <div></div>
-        <div></div>
+          src="images/icons/logoPrincipal.svg"
+          alt="Logo suAIDPI"
+        >
+      </a>
 
-        <div id="guestMenu">
+      <nav
+        class="sidebar-nav"
+        aria-label="Navegação principal"
+      >
 
-            <a href="login.html" class="btn-header">
-                Login
-            </a>
+        <a
+          class="nav-item active"
+          href="index.html"
+        >
+          <img
+            src="images/icons/home.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Início</span>
+        </a>
 
-            <a href="cadastro.html" class="btn-header cadastro">
-                Cadastrar
-            </a>
+        <a
+          class="nav-item"
+          href="avaliar.html"
+        >
+          <img
+            src="images/icons/add_box.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Novo Atendimento</span>
+        </a>
+
+        <a
+          class="nav-item"
+          href="avaliar.html"
+        >
+          <img
+            src="images/icons/schedule.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Em Andamento</span>
+        </a>
+
+        <a
+          class="nav-item"
+          href="historico.html"
+        >
+          <img
+            src="images/icons/folder.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Histórico</span>
+        </a>
+
+        <a
+          class="nav-item"
+          href="material.html"
+        >
+          <img
+            src="images/icons/import_contacts.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Biblioteca AIDPI</span>
+        </a>
+
+        <a
+          class="nav-item"
+          href="quemSomos.html"
+        >
+          <img
+            src="images/icons/diversity_2.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Quem somos</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a
+          class="nav-item"
+          href="#"
+        >
+          <img
+            src="images/icons/person.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Perfil</span>
+        </a>
+
+        <a
+          class="nav-item"
+          href="#"
+        >
+          <img
+            src="images/icons/settings.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Configurações</span>
+        </a>
+
+        <a
+          class="nav-item"
+          href="#"
+        >
+          <img
+            src="images/icons/help.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Ajuda e Suporte</span>
+        </a>
+
+      </nav>
+    </aside>
+
+    <!-- =========================
+         ÁREA PRINCIPAL
+    ========================== -->
+
+    <div class="page-area">
+
+      <!-- =========================
+           CABEÇALHO
+      ========================== -->
+
+      <header class="topbar">
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+          type="button"
+          aria-label="Abrir menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <div class="greeting-small">
+
+          <strong>
+            Olá,
+            <span id="homePrimeiroNome">
+              carregando
+            </span>!
+            
+          </strong>
+
+          <span>
+            <i data-lucide="map-pin"></i>
+
+            <span id="homeUbs">
+              Carregando unidade...
+            </span>
+          </span>
 
         </div>
 
-        <div id="userMenu" style="display:none">
 
-            <span id="userName"></span>
+        <div class="user-actions">
 
-            <button id="logoutBtn" class="btn-header">
-                Sair
+          
+          <!-- Visitante -->
+
+          <div
+            id="guestMenu"
+            class="guest-menu"
+            style="display: none;"
+          >
+
+            <a href="login.html">
+              Entrar
+            </a>
+
+            <a
+              href="cadastro.html"
+              class="primary-link"
+            >
+              Cadastrar
+            </a>
+
+          </div>
+
+
+          <!-- Usuário autenticado -->
+
+          <div
+            id="userMenu"
+            class="user-menu"
+            style="display: none;"
+          >
+
+            <div
+              class="avatar"
+              id="homeAvatar"
+              aria-hidden="true"
+            >
+              US
+            </div>
+
+            <div class="user-copy">
+
+              <strong id="homeNomeCompleto">
+                Carregando usuário...
+              </strong>
+
+              <span id="homeProfissao">
+                Profissional de saúde
+              </span>
+
+            </div>
+
+            <button
+              class="chevron-button"
+              id="logoutBtn"
+              type="button"
+              title="Sair"
+              aria-label="Sair"
+            >
+              <i data-lucide="log-out"></i>
             </button>
 
+          </div>
+
         </div>
+      </header>
 
-    </header>
 
-    <main class="container">
+      <!-- =========================
+           CONTEÚDO
+      ========================== -->
 
-        <div></div>
+      <main class="dashboard">
 
-        <img
-            src="images/logoPrincial.png"
-            alt="Logo PET Saúde Digital"
-            class="logo"
+        <section class="hero-copy">
+
+          <h1>
+            Bem-vindo(a) ao
+            <span>suAIDPI!</span>
+          </h1>
+
+          <p>
+            Seu apoio inteligente para consultas mais seguras,
+            <br>
+            rápidas e alinhadas à estratégia AIDPI.
+          </p>
+
+        </section>
+
+
+        <!-- Ações rápidas -->
+
+        <section
+          class="quick-actions"
+          aria-label="Ações rápidas"
         >
 
-        <a href="avaliar.html" class="menu-card">
-            Avaliar e Classificar
-        </a>
+          <a
+            href="avaliar.html"
+            class="action-card action-card-blue"
+          >
 
-        <a href="material.html" class="menu-card">
-            Material Técnico
-        </a>
+            <span class="action-icon">
+              <i data-lucide="plus"></i>
+            </span>
 
-        <a href="historico.html" class="menu-card">
-            Histórico de Atendimentos
-        </a>
+            <span class="action-text">
 
-         <a href="quemSomos.html" class="menu-card">
-            Quem Somos
-        </a>
+              <strong>
+                Iniciar novo atendimento
+              </strong>
 
-        
-    </main>
+              <small>
+                Começar consulta com uma
+                <br>
+                nova criança
+              </small>
+
+            </span>
+
+            <i
+              class="action-arrow"
+              data-lucide="chevron-right"
+            ></i>
+
+          </a>
+
+
+          <a
+            href="avaliar.html"
+            class="action-card action-card-green"
+          >
+
+            <span class="action-icon">
+              <i data-lucide="clipboard-plus"></i>
+            </span>
+
+            <span class="action-text">
+
+              <strong>
+                Continuar atendimento
+              </strong>
+
+              <small>
+                Retomar consulta em
+                <br>
+                andamento
+              </small>
+
+            </span>
+
+            <i
+              class="action-arrow"
+              data-lucide="chevron-right"
+            ></i>
+
+          </a>
+
+        </section>
+
+
+        <!-- Atendimentos recentes e dica -->
+
+        <section class="content-grid">
+
+          <div class="appointments-panel">
+
+            <div class="section-heading">
+
+              <h2>
+                Atendimentos recentes
+              </h2>
+
+              <a href="historico.html">
+                Ver todos
+              </a>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+              <table class="appointments-table">
+
+                <thead>
+                  <tr>
+                    <th>Criança</th>
+                    <th>Data</th>
+                    <th>Classificação</th>
+                    <th>Baixar</th>
+                  </tr>
+                </thead>
+
+                <tbody id="recentAppointmentsBody">
+
+                  <tr class="loading-row">
+                    <td colspan="4">
+                      Carregando atendimentos recentes...
+                    </td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+            </div>
+
+
+            <div class="info-strip">
+
+              <i data-lucide="info"></i>
+
+              <span>
+                Mantenha os dados sempre atualizados para
+                garantir um atendimento seguro e eficaz.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <aside class="daily-tip">
+
+            <div class="tip-title">
+
+              <i data-lucide="sparkles"></i>
+
+              <strong>
+                Dica do dia
+              </strong>
+
+            </div>
+
+            <p>
+              A identificação precoce dos sinais de perigo
+              pode salvar vidas.
+            </p>
+
+            <small>
+              Sempre avalie primeiro!
+            </small>
+
+            <i
+              class="tip-illustration"
+              data-lucide="clipboard-search"
+            ></i>
+
+          </aside>
+
+        </section>
+
+      </main>
+
+
+      <!-- =========================
+           RODAPÉ
+      ========================== -->
+
+      <footer class="footer">
+
+        <div class="footer-brand">
+
+          <img
+            src="images/icons/logoPrincipal.svg"
+            alt="Logo suAIDPI"
+          >
+
+        </div>
+
+        <p>
+          Suporte na Atenção Integrada às Doenças Prevalentes
+          na Infância (suAIDPI), desenvolvido para auxiliar
+          profissionais da Atenção Primária à Saúde durante o
+          atendimento infantil, a partir do uso da estratégia
+          AIDPI.
+        </p>
+
+        <p class="footer-right">
+          
+          <br>
+          suAIDPI © 2026   Versão 1.0.0
+          <br>
+          Ajuda | Termos de uso | Política de Privacidade
+          <br>
+          Desenvolvido pelo GAT 3 do PET-Saúde Digital · UFCG
+        </p>
+
+      </footer>
+
+    </div>
+  </div>
+
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <script
+    type="module"
+    src="js/authState.js"
+  ></script>
+
+  <script
+    type="module"
+    src="js/homeRecentes.js"
+  ></script>
+
+  <script
+    type="module"
+    src="js/logout.js"
+  ></script>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      const menuButton =
+        document.getElementById("mobileMenu");
+
+      const sidebar =
+        document.getElementById("sidebar");
+
+      menuButton?.addEventListener("click", () => {
+        sidebar?.classList.toggle("open");
+      });
+
+    });
+  </script>
 
 </body>
 </html>

@@ -2,61 +2,195 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cadastro - PET Saúde Digital</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Cadastro - suAIDPI</title>
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cadastro.css">
 </head>
 
-<body>
+<body class="cadastro-page">
 
   <main class="container">
 
-    <section class="card" style="max-width:500px;margin:50px auto">
+    <section
+      class="card cadastro-card"
+      aria-labelledby="tituloCadastro"
+    >
 
-      <h2>Cadastro</h2>
+      <h2 id="tituloCadastro">
+        Criar conta
+      </h2>
 
-      <div style="margin-bottom:15px">
-        <label>Email</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="Digite seu email"
-        >
-      </div>
+      <p class="cadastro-descricao">
+        Preencha seus dados profissionais para acessar o sistema.
+      </p>
 
-      <div style="margin-bottom:15px">
-        <label>Senha</label>
-        <input
-          type="password"
-          id="senha"
-          placeholder="Digite sua senha"
-        >
-      </div>
+      <form id="cadastroForm">
 
-      <div class="actions">
+        <div class="campo-formulario">
+          <label for="primeiroNome">
+            Primeiro nome
+          </label>
 
-        
+          <input
+            type="text"
+            id="primeiroNome"
+            name="primeiroNome"
+            placeholder="Digite seu primeiro nome"
+            autocomplete="given-name"
+            maxlength="50"
+            required
+          >
+        </div>
 
-        <button
-          class="btn ghost"
-          id="cadastroBtn"
-          type="button"
-        >
-          Criar conta
-        </button>
+        <div class="campo-formulario">
+          <label for="sobrenome">
+              Sobrenome
+          </label>
 
-        <button class="btn ghost" type="btn-voltar" onclick="window.location.href='index.html'">Voltar á página inicial</button>
+          <input
+              type="text"
+              id="sobrenome"
+              placeholder="Digite seu sobrenome"
+              autocomplete="family-name"
+              maxlength="100"
+              required
+          >
+        </div>
 
-      </div>
+        <div class="campo-formulario">
+          <label for="profissao">
+            Profissão
+          </label>
 
-      <p id="mensagem"></p>
+          <select
+            id="profissao"
+            name="profissao"
+            required
+          >
+            <option value="" selected disabled>
+              Selecione sua profissão
+            </option>
+
+            <option value="Médico">
+              Médico
+            </option>
+
+            <option value="Enfermeiro">
+              Enfermeiro
+            </option>
+          </select>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="ubs">
+            Unidade Básica de Saúde
+          </label>
+
+          <input
+            type="text"
+            id="ubs"
+            name="ubs"
+            placeholder="Ex.: UBS João Rique"
+            autocomplete="organization"
+            maxlength="100"
+            required
+          >
+        </div>
+
+        <div class="campo-formulario">
+          <label for="email">
+            E-mail
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Digite seu e-mail"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="campo-formulario">
+          <label for="senha">
+            Senha
+          </label>
+
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Digite sua senha"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          >
+
+          <small class="ajuda-campo">
+            A senha deve possuir pelo menos 6 caracteres.
+          </small>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="confirmarSenha">
+            Confirmar senha
+          </label>
+
+          <input
+            type="password"
+            id="confirmarSenha"
+            name="confirmarSenha"
+            placeholder="Digite a senha novamente"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          >
+        </div>
+
+        <div class="actions cadastro-actions">
+
+          <button
+            class="btn cadastro-submit"
+            id="cadastroBtn"
+            type="submit"
+          >
+            Criar conta
+          </button>
+
+          <a
+            class="btn cadastro-voltar"
+            href="login.html"
+          >
+            Voltar para o login
+          </a>
+
+        </div>
+
+        <p
+          id="mensagem"
+          class="mensagem-formulario"
+          role="alert"
+          aria-live="polite"
+        ></p>
+
+      </form>
 
     </section>
 
   </main>
 
-  <script type="module" src="js/auth.js"></script>
+  <script
+    type="module"
+    src="js/auth.js"
+  ></script>
 
 </body>
 </html>

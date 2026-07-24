@@ -1,0 +1,239 @@
+/* =========================
+   PÁGINA DE LOGIN
+========================= */
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  padding: 24px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.login-container {
+  width: 100%;
+  max-width: 460px;
+}
+
+
+/* =========================
+   CARTÃO
+========================= */
+
+.login-card {
+  width: 100%;
+  padding: 32px;
+
+  border: 1px solid var(--borda-suave);
+  border-radius: 16px;
+
+  background: var(--fundo-claro);
+
+  box-shadow: var(--sombra-suave);
+}
+
+.login-card h1 {
+  margin-bottom: 24px;
+
+  color: var(--azul-principal);
+
+  font-size: 30px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+
+/* =========================
+   CAMPOS
+========================= */
+
+.login-field {
+  margin-bottom: 18px;
+}
+
+.login-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #2f4a57;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.login-field input {
+  width: 100%;
+  min-height: 46px;
+
+  padding: 11px 13px;
+
+  border: 1px solid var(--borda-clara);
+  border-radius: 9px;
+
+  background: var(--branco);
+  color: #1b3542;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-field input:focus {
+  border-color: var(--azul-principal);
+
+  box-shadow:
+    0 0 0 3px rgba(56, 76, 132, 0.12);
+}
+
+.login-field input::placeholder {
+  color: #9aa8b3;
+}
+
+
+/* =========================
+   RECUPERAÇÃO DE SENHA
+========================= */
+
+.recuperar-senha-container {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: -6px;
+  margin-bottom: 18px;
+}
+
+.recuperar-senha-btn {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--azul-principal);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.recuperar-senha-btn:hover {
+  text-decoration: underline;
+}
+
+.recuperar-senha-btn:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 8px;
+}
+
+.login-submit,
+.login-voltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 46px;
+
+  border-radius: 9px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.login-submit {
+  border: 1px solid var(--azul-principal);
+
+  background: var(--azul-principal);
+  color: var(--branco);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.login-submit:hover {
+  transform: translateY(-1px);
+}
+
+.login-submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.login-voltar {
+  border: 1px solid #d0e3ea;
+
+  background: transparent;
+  color: var(--azul-principal);
+}
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+.login-message {
+  min-height: 20px;
+  margin-top: 16px;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.login-message.erro {
+  color: var(--vermelho);
+}
+
+.login-message.sucesso {
+  color: var(--verde);
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 520px) {
+  .login-page {
+    align-items: flex-start;
+    padding: 18px 12px;
+  }
+
+  .login-card {
+    padding: 24px 18px;
+    border-radius: 12px;
+  }
+
+  .login-card h1 {
+    font-size: 26px;
+  }
+}
