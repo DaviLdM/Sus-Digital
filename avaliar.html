@@ -1,336 +1,910 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Checklist completo (AIDP)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/avaliar.css">
+
   <script defer src="js/avaliar.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="js/gerarPDF.js"></script>
+
   <script type="module" src="js/protegerPagina.js"></script>
   <script type="module" src="js/salvarHistorico.js"></script>
+  <script type="module" src="js/authState.js"></script>
+  <script type="module" src="js/logout.js"></script>
+
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
 </head>
+
 <body class="avaliar-page">
-  <main class="container">
-    <section id="checklistSection" class="card" style="margin-top:18px">
-      <div id="area-relatorio">
-        <div class="section-title">
-          <h2>Checklist completo (AIDP)</h2>
-          <span class="small">Preencha as etapas da avaliação clínica</span>
+
+  <div class="app-shell">
+
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
+
+      <a class="brand" href="index.html" aria-label="Página inicial">
+        <img src="images/icons/logoPrincipal.svg" alt="Logo suAIDPI">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegação principal">
+
+        <a class="nav-item" href="index.html">
+          <img src="images/icons/home.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Início</span>
+        </a>
+
+        <a class="nav-item active" href="avaliar.html">
+          <img src="images/icons/add_box.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Novo Atendimento</span>
+        </a>
+
+        <a class="nav-item" href="avaliar.html">
+          <img src="images/icons/schedule.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Em Andamento</span>
+        </a>
+
+        <a class="nav-item" href="historico.html">
+          <img src="images/icons/folder.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Histórico</span>
+        </a>
+
+        <a class="nav-item" href="material.html">
+          <img src="images/icons/import_contacts.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Biblioteca AIDPI</span>
+        </a>
+
+        <a class="nav-item" href="quemSomos.html">
+          <img src="images/icons/diversity_2.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Quem somos</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a class="nav-item" href="perfil.html">
+          <img src="images/icons/person.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Perfil</span>
+        </a>
+
+        <a class="nav-item" href="configuracoes.html">
+          <img src="images/icons/settings.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Configurações</span>
+        </a>
+
+        <a class="nav-item" href="ajuda.html">
+          <img src="images/icons/help.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Ajuda e Suporte</span>
+        </a>
+
+      </nav>
+    </aside>
+
+
+    <!-- =========================
+         ÁREA DA PÁGINA
+    ========================== -->
+    <div class="page-area">
+
+      <!-- =========================
+           TOPO
+      ========================== -->
+      <header class="topbar">
+
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Abrir menu">
+          ☰
+        </button>
+
+        <div class="greeting-small">
+          <strong>
+            Olá, <span id="homePrimeiroNome">carregando</span>!
+          </strong>
+
+          <span>
+            <i data-lucide="map-pin"></i>
+
+            <span id="homeUbs">
+              Carregando unidade...
+            </span>
+          </span>
         </div>
 
-        <form id="checklistForm" onsubmit="return false;">
+        <div class="user-actions">
 
-          <div class="row">
-            <div style="flex:1">
-              <label for="nome">Nome da criança / identificação</label>
-              <input id="nome" type="text" placeholder="Ex: João" />
-            </div>
-            <div style="width:140px">
-              <label for="idade">Idade</label>
-              <input id="idade" type="number" placeholder="Ex: 2,8" />
-            </div>
-          </div>
-          <div class="row" style="margin-top:12px;">
+          <div id="userMenu" class="user-menu" style="display:none">
 
-            <div style="flex:1">
-              <label for="cpf">CPF</label>
-              <input id="cpf" type="text" placeholder="Ex: 123.456.789-00">
+            <div class="avatar" id="homeAvatar" aria-hidden="true">
+              US
             </div>
 
-            <div style="width:140px">
-              <label for="peso">Peso (kg)</label>
-              <input id="peso" type="number" step="0.1" placeholder="Ex: 12.5">
+            <div class="user-copy">
+              <strong id="homeNomeCompleto">Carregando usuário...</strong>
+              <span id="homeProfissao">Profissional de saúde</span>
             </div>
 
-            <div style="width:140px">
-              <label for="estatura">Estatura (cm)</label>
-              <input id="estatura" type="number" step="0.1" placeholder="Ex: 85">
-            </div>
+            <button
+              class="chevron-button"
+              id="logoutBtn"
+              type="button"
+              title="Sair"
+              aria-label="Sair"
+            >
+              <i data-lucide="log-out"></i>
+            </button>
 
           </div>
 
-          <!-- Queixa principal -->
-          <div style="margin-top:12px;">
-            <label for="queixa">Queixa principal</label>
-            <textarea
-              id="queixa"
-              rows="4"
-              maxlength="373"
-              placeholder="Descreva a principal queixa da criança..."></textarea>
+        </div>
+      </header>
+
+
+      <!-- =========================
+           CONTEÚDO
+      ========================== -->
+      <main class="assessment-main">
+
+        <div class="assessment-heading">
+
+          <a
+            class="back-link"
+            href="index.html"
+            aria-label="Voltar"
+            title="Voltar"
+          >
+            <img
+              src="images/icons/arrow_back.svg"
+              alt=""
+              aria-hidden="true"
+            >
+          </a>
+
+          <div class="assessment-title">
+            <h1>Checklist completo (AIDP)</h1>
+            <p>Preencha as etapas da avaliação clínica</p>
           </div>
 
-          <h3>Sinais de Perigo Geral</h3>
-          <div class="checkboxes" aria-label="Sinais de perigo geral">
-            <label><input type="checkbox" name="danger" value="convulsao"> Convulsões ou movimentos anormais</label>
-            <label><input type="checkbox" name="danger" value="inconsiencia"> Inconsciência / letargia</label>
-            <label><input type="checkbox" name="danger" value="incapaz_beber"> Incapaz de beber ou mamar</label>
-            <label><input type="checkbox" name="danger" value="tempo_enchimento_capilar"> tempo de enchimento capilar > 2seg</label>
-            <label><input type="checkbox" name="danger" value="gemencia"> Apresenta batimento de asa de nariz ou gemência</label>
-          </div>
+        </div>
 
-          <h3>A Tosse ou a Dificuldade de Respirar</h3>
-          <div class="row">
-            <div style="flex:1">
-              <label for="cough">A criança tem tosse ou dificuldade para respirar?</label>
-              <select id="cough">
-                <option value="no">Não</option>
-                <option value="yes">Sim</option>
-              </select>
-            </div>
-            <div style="width:140px">
-              <label for="duration_cough">Há quanto tempo?</label>
-              <input id="duration_cough" type="text" placeholder="ex: 2 dias" />
-            </div>
-          </div>
 
-          <div class="checkboxes" style="margin-top:6px">
-            <label><input type="checkbox" name="resp" value="qualquer_sinal_perigo_Tosse"> Qualquer sinal geral de perigo</label>
-            <label><input type="checkbox" name="resp" value="tiragem_subcostal_Tosse"> Tiragem subcostal</label>
-            <label><input type="checkbox" name="resp" value="estridor_descanso"> Estridor em repouso</label>
-            <label><input type="checkbox" name="resp" value="respiracao_rapida"> Respiração rápida (usar campo FR)</label>
-            <label><input type="checkbox" name="resp" value="nenhum sinal acima"> Nenhum sinal acima</label>
-          </div>
+        <section id="checklistSection" class="assessment-card">
 
-          <div class="row" style="margin-top:8px">
-            <div style="flex:1">
-              <label for="rr">Frequência respiratória / min</label>
-              <input id="rr" type="number" placeholder="ex: 50" />
-            </div>
-            <div style="width:140px">
-              <label for="o2">Sat O₂ (%)</label>
-              <input id="o2" type="number" placeholder="ex: 95" />
-            </div>
-          </div>
+          <div id="area-relatorio">
 
-          <h3>A Sibilância</h3>
-          <div class="checkboxes">
-            <label><input type="checkbox" name="sibilancia_det" value="letargia_demais"> Letargia ou sempre agitada</label>
-            <label><input type="checkbox" name="sibilancia_det" value="agitacao_normal"> Periodos de agitação normal</label>
-            <label><input type="checkbox" name="sibilancia_det" value="estridor"> Estridor em repouso</label>
-            <label><input type="checkbox" name="sibilancia_det" value="tiragem_universal"> Tiragem universal</label>
-            <label><input type="checkbox" name="sibilancia_det" value="tiragem_subcostal_Sibi"> Tiragem subcostal</label>
-            <label><input type="checkbox" name="sibilancia_det" value="fala_incompleta"> Fala frases incompletas</label>
-            <label><input type="checkbox" name="sibilancia_det" value="choro_curto"> Choro curto/ Não consegue chorar</label>
-            <label><input type="checkbox" name="sibilancia_det" value="choro_entrecortado"> Choro entrecortado</label>
-            <label><input type="checkbox" name="sibilancia_det" value="sat_low"> Sat O₂ ≤ 90%</label>
-            <label><input type="checkbox" name="sibilancia_det" value="sat_mid"> Sat O₂ 91% a 95%</label>
-            <label><input type="checkbox" name="sibilancia_det" value="sat_high"> Sat O₂ ≥ 95%</label>
-            <label><input type="checkbox" name="sibilancia_det" value="nenhum sinal acima_sib"> Nenhum sinal acima</label>
-          </div>
+            <form id="checklistForm" onsubmit="return false;">
 
-          <h3>A Diarreia</h3>
-          <div class="row">
-            <div style="flex:1">
-              <label for="diarrhea">A criança está com diarreia?</label>
-              <select id="diarrhea">
-                <option value="no">Não</option>
-                <option value="yes">Sim</option>
-              </select>
-            </div>
-            <div style="width:140px">
-              <label for="duration_diarr">Há quanto tempo?</label>
-              <input id="duration_diarr" type="text" placeholder="ex: 3 dias" />
-            </div>
-          </div>
+              <!-- =========================
+                   DADOS INICIAIS
+              ========================== -->
+              <div class="form-section initial-data-section">
 
-          <div class="checkboxes" style="margin-top:6px">
-            <label><input type="checkbox" name="diarr" value="letargica_diarr">Letárgica ou inconsciente</label>
-              <label><input type="checkbox" name="diarr" value="olhos_fundos">Olhos fundos</label>
-              <label><input type="checkbox" name="diarr" value="nao_bebe">Não consegue beber ou bebe mal</label>
-              <label><input type="checkbox" name="diarr" value="prega_muito_lenta">Sinal da prega</label>
-              <label><input type="checkbox" name="diarr" value="inquieta">Inquieta ou irritada</label>
-              <label><input type="checkbox" name="diarr" value="bebe_avido">Bebe avidamente, com sede</label>
-              <label><input type="checkbox" name="diarr" value="nenhum sinal acima_diarr"> Nenhum sinal acima</label>
-              <label><input type="checkbox" name="diarr" value="sangue_nas_fezes">Sangue nas fezes</label>
-              <label><input type="checkbox" name="diarr" value="com_desidratacao">Com desidratação</label>
-              <label><input type="checkbox" name="diarr" value="sem_desidratacao">Sem desidratação</label>
-          </div>
+                <div class="row">
+                  <div class="field-grow">
+                    <label for="nome">Nome da criança / identificação</label>
+                    <input id="nome" type="text" placeholder="">
+                  </div>
 
-          <h3>Febre</h3>
-          <div class="row">
-            <div style="flex:1">
-              <label for="fever">A criança tem febre?</label>
-              <select id="fever">
-                <option value="no">Não</option>
-                <option value="yes">Sim</option>
-              </select>
-            </div>
-            <div style="width:140px">
-              <label for="temp">Temperatura (ºC)</label>
-              <input id="temp" type="number" step="0.1" placeholder="ex: 38.5" />
-            </div>
-          </div>
+                  <div class="field-small">
+                    <label for="idade">Idade</label>
+                    <input id="idade" type="number" placeholder="">
+                  </div>
+                </div>
 
-          <div class="checkboxes" style="margin-top:6px">
-              <label><input type="checkbox" name="fev" value="sinal_perigo_geral"> Qualquer sinal geral de perigo</label>
-              <label><input type="checkbox" name="fev" value="rigidez_nuca"> Rigidez de nuca</label>
-              <label><input type="checkbox" name="fev" value="petequias"> Petéquias</label>
-              <label><input type="checkbox" name="fev" value="fontanela_abaulada"> Abaulamento de fontanela</label>
-              <label><input type="checkbox" name="fev" value="nenhum_sinal_grave"> Nenhum sinal de malária grave ou doença febril muito grave e gota espessa ou teste rápido positivo</label>
-              <label><input type="checkbox" name="fev" value="nenhum_sinal_negativo"> Nenhum sinal de doença febril muito grave.</label>
-              <label><input type="checkbox" name="fev" value="area_risco"> Área com risco de malária</label>
-          </div>
+                <div class="row">
+                  <div class="field-grow">
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" type="text" placeholder="">
+                  </div>
 
-          <h3>Problema de ouvido</h3>
-          <div class="checkboxes">
-              <label><input type="checkbox" name="ear" value="tumefacao_vermelhidao"> Tumefação e/ou vermelhidão dolorosa ao toque atrás da orelha</label>
-              <label><input type="checkbox" name="ear" value="secrecao_menos_14"> Secreção purulenta visível no ouvido há menos de 14 dias ou otoscopia alterada</label>
-              <label><input type="checkbox" name="ear" value="secrecao_14_ou_mais"> Secreção purulenta visível no ouvido há 14 dias ou mais</label>
-              <label><input type="checkbox" name="ear" value="sem_dor_sem_secrecao"> Não tem dor de ouvido e não foi notada alguma secreção purulenta no ouvido</label>
-              <label><input type="checkbox" name="ear" value="dor_ouvido"> Dor no ouvido</label>
-          </div>
+                  <div class="field-small">
+                    <label for="peso">Peso (kg)</label>
+                    <input id="peso" type="number" step="0.1" placeholder="">
+                  </div>
 
-          <h3>Dor de garganta</h3>
-          <div class="checkboxes">
-              <label><input type="checkbox" name="throat" value="sinal_perigo_geral"> Qualquer sinal geral de perigo</label>
-              <label><input type="checkbox" name="throat" value="amigdalas_membranas"> Amígdalas com a presença de membranas branco-acinzentadas.</label>
-              <label><input type="checkbox" name="throat" value="ganglios_dolorosos"> Gânglios aumentados e dolorosos no pescoço.</label>
-              <label><input type="checkbox" name="throat" value="amigdalas_pontos_purulentos"> Amígdalas hiperemiadas com pontos purulentos ou petéquias em palato.</label>
-              <label><input type="checkbox" name="throat" value="vesiculas_hiperemia_resfriado"> Vesículas ou hiperemia de garganta, associados a sinais de resfriado comum.</label>
-              <label><input type="checkbox" name="throat" value="nenhum_sinal"> Não há nenhum dos sinais acima descritos.</label>
-              <label><input type="checkbox" name="throat" value="abaulamento_palato"> Abaulamento de palato.</label>
-          </div>
+                  <div class="field-small">
+                    <label for="estatura">Estatura (cm)</label>
+                    <input id="estatura" type="number" step="0.1" placeholder="">
+                  </div>
+                </div>
 
-          <h3>Nutrição e anemia</h3>
-          <div class="checkboxes">
-              <label><input type="checkbox" name="nut" value="emagrecimento_acentuado"> Emagrecimento acentuado visível</label>
-              <label><input type="checkbox" name="nut" value="edema_ambos_pes"> Edema em ambos os pés.</label>
-              <label><input type="checkbox" name="nut" value="peso_idade_menor_menos3"> Peso para a idade &lt;-3 escores z.</label>
-              <label><input type="checkbox" name="nut" value="peso_idade_menor_menos2"> Peso para a idade &lt;-2 e ≥-3 escores z.</label>
-              <label><input type="checkbox" name="nut" value="tendencia_curva_descendente"> Tendência da curva peso/idade horizontal ou descendente.</label>
-              <label><input type="checkbox" name="nut" value="peso_idade_maior_mais2"> Peso para a idade &gt;+2 escores z.</label>
-              <label><input type="checkbox" name="nut" value="peso_idade_entre_menos2_mais2"> Peso para a idade ≥-2 e ≤+2 escores z.</label>
-              <label><input type="checkbox" name="nut" value="palidez_palmar_grave"> Palidez palmar grave ou Hb abaixo de 5 g/dL.</label>
-              <label><input type="checkbox" name="nut" value="palidez_palmar_leve"> Palidez palmar leve ou Hb de 5 g/dL a 10,9 g/dL.</label>
-          </div>
+                <div class="field-block">
+                  <label for="queixa">Queixa principal</label>
+                  <textarea
+                    id="queixa"
+                    rows="4"
+                    maxlength="373"
+                    placeholder="Descreva a principal queixa da criança..."
+                  ></textarea>
+                </div>
 
-          <label style="margin-top:10px">Observações / conduta já tomada (opcional)</label>
-          <textarea id="obs" rows="4" placeholder="Anotações rápidas, medicamentos administrados, orientações..."></textarea>
+              </div>
 
-          <div class="actions">
-            <button class="btn" id="evaluateBtn" type="button">Avaliar</button>
-            <button id="saveHistoryBtn" class="btn ghost" type="button">Salvar Consulta</button>
-            <button class="btn ghost" id="downloadBtn" type="button">Baixar resumo</button>
-            <button class="btn ghost" type="btn-voltar" onclick="window.location.href='index.html'">Voltar</button>
-          </div>
 
-          <div id="resultArea" style="display:none">
-            
-            <!--  Danger Normal-->
-            <div id="dangerResult" class="muted-box" style="display:none">
-                <div class="result">
+              <!-- =========================
+                   SINAIS DE PERIGO
+              ========================== -->
+              <section class="clinical-section accordion-section danger-section">
+                <h3>Sinais de Perigo Geral</h3>
+
+                <div class="accordion-content">
+                  <div class="checkboxes" aria-label="Sinais de perigo geral">
+                    <label><input type="checkbox" name="danger" value="convulsao"> Convulsões ou movimentos anormais</label>
+                    <label><input type="checkbox" name="danger" value="inconsiencia"> Inconsciência / letargia</label>
+                    <label><input type="checkbox" name="danger" value="incapaz_beber"> Incapaz de beber ou mamar</label>
+                    <label><input type="checkbox" name="danger" value="tempo_enchimento_capilar"> tempo de enchimento capilar &gt; 2seg</label>
+                    <label><input type="checkbox" name="danger" value="gemencia"> Apresenta batimento de asa de nariz ou gemência</label>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- =========================
+                   RESPIRAÇÃO
+              ========================== -->
+              <section class="clinical-section accordion-section">
+                <h3>A Tosse ou a Dificuldade de Respirar</h3>
+
+                <div class="accordion-content">
+
+                  <div class="clinical-guidance" aria-label="Orientações para tosse ou dificuldade de respirar">
+
+                    <div class="guidance-card guidance-question">
+                      <div class="guidance-heading">
+                        <i data-lucide="message-circle-question"></i>
+                        <strong>PERGUNTAR</strong>
+                      </div>
+                      <ul>
+                        <li>Há quanto tempo?</li>
+                        <li>A criança tem sibilância?</li>
+                      </ul>
+                    </div>
+
+                    <div class="guidance-card guidance-observe">
+                      <div class="guidance-heading">
+                        <i data-lucide="eye"></i>
+                        <strong>OBSERVAR / DETERMINAR</strong>
+                      </div>
+                      <ul>
+                        <li>Contar a frequência respiratória em um minuto.</li>
+                        <li>Se há tiragem subcostal.</li>
+                        <li>Se há estridor ou sibilância.</li>
+                      </ul>
+                    </div>
+
+                    <div class="guidance-card guidance-reference guidance-wide">
+                      <div class="guidance-heading">
+                        <i data-lucide="activity"></i>
+                        <strong>DEFINIÇÃO DE RESPIRAÇÃO RÁPIDA</strong>
+                      </div>
+
+                      <div class="respiratory-reference">
+                        <div class="reference-row reference-header">
+                          <span>Idade</span>
+                          <span>Respiração rápida</span>
+                        </div>
+                        <div class="reference-row">
+                          <span>2 meses a menos de 12 meses</span>
+                          <strong>50 ou mais por minuto</strong>
+                        </div>
+                        <div class="reference-row">
+                          <span>1 ano a menos de 5 anos</span>
+                          <strong>40 ou mais por minuto</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="guidance-alert guidance-wide">
+                      <i data-lucide="info"></i>
+                      <span><strong>ATENÇÃO:</strong> A criança deve estar tranquila.</span>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="field-grow">
+                      <label for="cough">A criança tem tosse ou dificuldade para respirar?</label>
+                      <select id="cough">
+                        <option value="no">Não</option>
+                        <option value="yes">Sim</option>
+                      </select>
+                    </div>
+
+                    <div class="field-small">
+                      <label for="duration_cough">Há quanto tempo?</label>
+                      <input id="duration_cough" type="text" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="checkboxes">
+                    <label><input type="checkbox" name="resp" value="qualquer_sinal_perigo_Tosse"> Qualquer sinal geral de perigo</label>
+                    <label><input type="checkbox" name="resp" value="tiragem_subcostal_Tosse"> Tiragem subcostal</label>
+                    <label><input type="checkbox" name="resp" value="estridor_descanso"> Estridor em repouso</label>
+                    <label><input type="checkbox" name="resp" value="respiracao_rapida"> Respiração rápida (usar campo FR)</label>
+                    <label><input type="checkbox" name="resp" value="nenhum sinal acima"> Nenhum sinal acima</label>
+                  </div>
+
+                  <div class="row">
+                    <div class="field-grow">
+                      <label for="rr">Frequência respiratória / min</label>
+                      <input id="rr" type="number" placeholder="">
+                    </div>
+
+                    <div class="field-small">
+                      <label for="o2">Sat O₂ (%)</label>
+                      <input id="o2" type="number" placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- =========================
+                   SIBILÂNCIA
+              ========================== -->
+              <section class="clinical-section accordion-section">
+                <h3>A Sibilância</h3>
+
+                <div class="accordion-content">
+
+                  <div class="clinical-guidance" aria-label="Orientações para sibilância">
+
+                    <div class="guidance-card guidance-question">
+                      <div class="guidance-heading">
+                        <i data-lucide="message-circle-question"></i>
+                        <strong>PERGUNTAR</strong>
+                      </div>
+                      <ul>
+                        <li>Há quanto tempo?</li>
+                        <li>Primeira crise?</li>
+                        <li>Está em uso de broncodilatador adequadamente há 24h?</li>
+                      </ul>
+                    </div>
+
+                    <div class="guidance-card guidance-observe">
+                      <div class="guidance-heading">
+                        <i data-lucide="eye"></i>
+                        <strong>OBSERVAR / DETERMINAR</strong>
+                      </div>
+                      <ul>
+                        <li>Nível de consciência da criança.</li>
+                        <li>Se há sibilância.</li>
+                        <li>Se há estridor em repouso.</li>
+                        <li>Tiragem.</li>
+                        <li>Grau de dificuldade para respirar.</li>
+                        <li>Frequência respiratória em um minuto.</li>
+                        <li>Se possível, a Sat O₂.</li>
+                      </ul>
+                    </div>
+
+                    <div class="guidance-alert guidance-wide">
+                      <i data-lucide="info"></i>
+                      <span><strong>ATENÇÃO:</strong> A criança deve estar tranquila.</span>
+                    </div>
+
+                  </div>
+
+                  <div class="checkboxes">
+                    <label><input type="checkbox" name="sibilancia_det" value="letargia_demais"> Letargia ou sempre agitada</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="agitacao_normal"> Periodos de agitação normal</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="estridor"> Estridor em repouso</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="tiragem_universal"> Tiragem universal</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="tiragem_subcostal_Sibi"> Tiragem subcostal</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="fala_incompleta"> Fala frases incompletas</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="choro_curto"> Choro curto/ Não consegue chorar</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="choro_entrecortado"> Choro entrecortado</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="sat_low"> Sat O₂ ≤ 90%</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="sat_mid"> Sat O₂ 91% a 95%</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="sat_high"> Sat O₂ ≥ 95%</label>
+                    <label><input type="checkbox" name="sibilancia_det" value="nenhum sinal acima_sib"> Nenhum sinal acima</label>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- =========================
+                   DIARREIA
+              ========================== -->
+              <section class="clinical-section accordion-section">
+                <h3>A Diarreia</h3>
+
+                <div class="accordion-content">
+
+                  <div class="clinical-guidance" aria-label="Orientações para diarreia">
+
+                    <div class="guidance-card guidance-question">
+                      <div class="guidance-heading">
+                        <i data-lucide="message-circle-question"></i>
+                        <strong>PERGUNTAR</strong>
+                      </div>
+                      <ul>
+                        <li>Há quanto tempo?</li>
+                        <li>Há sangue nas fezes?</li>
+                      </ul>
+                    </div>
+
+                    <div class="guidance-card guidance-observe">
+                      <div class="guidance-heading">
+                        <i data-lucide="eye"></i>
+                        <strong>OBSERVAR E VERIFICAR</strong>
+                      </div>
+
+                      <div class="guidance-subgroup">
+                        <span class="guidance-subtitle">Condição geral da criança</span>
+                        <ul>
+                          <li>Letárgica ou inconsciente?</li>
+                          <li>Inquieta ou irritada?</li>
+                        </ul>
+                      </div>
+
+                      <div class="guidance-subgroup">
+                        <span class="guidance-subtitle">Olhos</span>
+                        <ul>
+                          <li>Se os olhos estão fundos.</li>
+                        </ul>
+                      </div>
+
+                      <div class="guidance-subgroup">
+                        <span class="guidance-subtitle">Oferecer líquidos à criança</span>
+                        <ul>
+                          <li>Não consegue beber ou bebe muito mal?</li>
+                          <li>Bebe avidamente, com sede?</li>
+                        </ul>
+                      </div>
+
+                      <div class="guidance-subgroup">
+                        <span class="guidance-subtitle">Sinal da prega: a pele volta ao estado anterior</span>
+                        <ul>
+                          <li>Muito lentamente (mais de dois segundos)?</li>
+                          <li>Lentamente (entre 1 e 2 segundos)?</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="field-grow">
+                      <label for="diarrhea">A criança está com diarreia?</label>
+                      <select id="diarrhea">
+                        <option value="no">Não</option>
+                        <option value="yes">Sim</option>
+                      </select>
+                    </div>
+
+                    <div class="field-small">
+                      <label for="duration_diarr">Há quanto tempo?</label>
+                      <input id="duration_diarr" type="text" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="checkboxes">
+                    <label><input type="checkbox" name="diarr" value="letargica_diarr">Letárgica ou inconsciente</label>
+                    <label><input type="checkbox" name="diarr" value="olhos_fundos">Olhos fundos</label>
+                    <label><input type="checkbox" name="diarr" value="nao_bebe">Não consegue beber ou bebe mal</label>
+                    <label><input type="checkbox" name="diarr" value="prega_muito_lenta">Sinal da prega</label>
+                    <label><input type="checkbox" name="diarr" value="inquieta">Inquieta ou irritada</label>
+                    <label><input type="checkbox" name="diarr" value="bebe_avido">Bebe avidamente, com sede</label>
+                    <label><input type="checkbox" name="diarr" value="nenhum sinal acima_diarr"> Nenhum sinal acima</label>
+                    <label><input type="checkbox" name="diarr" value="sangue_nas_fezes">Sangue nas fezes</label>
+                    <label><input type="checkbox" name="diarr" value="com_desidratacao">Com desidratação</label>
+                    <label><input type="checkbox" name="diarr" value="sem_desidratacao">Sem desidratação</label>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- =========================
+                   FEBRE
+              ========================== -->
+              <section class="clinical-section accordion-section">
+                <h3>Febre</h3>
+
+                <div class="accordion-content">
+
+                  <div class="clinical-guidance" aria-label="Orientações para febre">
+
+                    <div class="guidance-card guidance-question">
+                      <div class="guidance-heading">
+                        <i data-lucide="map"></i>
+                        <strong>DETERMINAR O RISCO DE MALÁRIA</strong>
+                      </div>
+                      <ul>
+                        <li>Área sem risco.</li>
+                        <li>Área com risco: gota espessa / teste rápido.</li>
+                        <li>Se positivo, especifique.</li>
+                        <li>Há quanto tempo? ___ dias.</li>
+                        <li>Se há mais de cinco dias: houve febre todos os dias?</li>
+                      </ul>
+                    </div>
+
+                    <div class="guidance-card guidance-observe">
+                      <div class="guidance-heading">
+                        <i data-lucide="eye"></i>
+                        <strong>OBSERVAR E PALPAR</strong>
+                      </div>
+                      <ul>
+                        <li>Rigidez de nuca.</li>
+                        <li>Petéquias.</li>
+                        <li>Abaulamento de fontanela.</li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="field-grow">
+                      <label for="fever">A criança tem febre?</label>
+                      <select id="fever">
+                        <option value="no">Não</option>
+                        <option value="yes">Sim</option>
+                      </select>
+                    </div>
+
+                    <div class="field-small">
+                      <label for="temp">Temperatura (ºC)</label>
+                      <input id="temp" type="number" step="0.1" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="checkboxes">
+                    <label><input type="checkbox" name="fev" value="sinal_perigo_geral"> Qualquer sinal geral de perigo</label>
+                    <label><input type="checkbox" name="fev" value="rigidez_nuca"> Rigidez de nuca</label>
+                    <label><input type="checkbox" name="fev" value="petequias"> Petéquias</label>
+                    <label><input type="checkbox" name="fev" value="fontanela_abaulada"> Abaulamento de fontanela</label>
+                    <label><input type="checkbox" name="fev" value="nenhum_sinal_grave"> Nenhum sinal de malária grave ou doença febril muito grave e gota espessa ou teste rápido positivo</label>
+                    <label><input type="checkbox" name="fev" value="nenhum_sinal_negativo"> Nenhum sinal de doença febril muito grave.</label>
+                    <label><input type="checkbox" name="fev" value="area_risco"> Área com risco de malária</label>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- =========================
+                   OUVIDO
+              ========================== -->
+              <section class="clinical-section accordion-section">
+                <h3>Problema de ouvido</h3>
+
+                <div class="accordion-content">
+
+                  <div class="clinical-guidance" aria-label="Orientações para problema de ouvido">
+
+                    <div class="guidance-card guidance-question">
+                      <div class="guidance-heading">
+                        <i data-lucide="message-circle-question"></i>
+                        <strong>PERGUNTAR</strong>
+                      </div>
+                      <ul>
+                        <li>Está com dor de ouvido?</li>
+                        <li>Há secreção no ouvido?</li>
+                        <li>Se houver, há quanto tempo? ___ dias.</li>
+                      </ul>
+                    </div>
+
+                    <div class="guidance-card guidance-observe">
+                      <div class="guidance-heading">
+                        <i data-lucide="eye"></i>
+                        <strong>OBSERVAR E PALPAR</strong>
+                      </div>
+                      <ul>
+                        <li>Observar se há secreção purulenta nos ouvidos.</li>
+                        <li>Palpar para determinar se há tumefação dolorosa atrás das orelhas.</li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                  <div class="checkboxes">
+                    <label><input type="checkbox" name="ear" value="tumefacao_vermelhidao"> Tumefação e/ou vermelhidão dolorosa ao toque atrás da orelha</label>
+                    <label><input type="checkbox" name="ear" value="secrecao_menos_14"> Secreção purulenta visível no ouvido há menos de 14 dias ou otoscopia alterada</label>
+                    <label><input type="checkbox" name="ear" value="secrecao_14_ou_mais"> Secreção purulenta visível no ouvido há 14 dias ou mais</label>
+                    <label><input type="checkbox" name="ear" value="sem_dor_sem_secrecao"> Não tem dor de ouvido e não foi notada alguma secreção purulenta no ouvido</label>
+                    <label><input type="checkbox" name="ear" value="dor_ouvido"> Dor no ouvido</label>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- =========================
+                   GARGANTA
+              ========================== -->
+              <section class="clinical-section accordion-section">
+                <h3>Dor de garganta</h3>
+
+                <div class="accordion-content">
+
+                  <div class="clinical-guidance clinical-guidance-single" aria-label="Orientações para dor de garganta">
+
+                    <div class="guidance-card guidance-observe">
+                      <div class="guidance-heading">
+                        <i data-lucide="eye"></i>
+                        <strong>OBSERVAR / DETERMINAR</strong>
+                      </div>
+                      <ul>
+                        <li>Presença de gânglios cervicais aumentados e dolorosos.</li>
+                        <li>Verificar presença de abaulamento de palato.</li>
+                        <li>Amígdalas com presença de membrana branco-acinzentada.</li>
+                        <li>Amígdalas hiperemiadas com pontos purulentos ou petéquias em palato.</li>
+                        <li>Presença de vesículas e/ou hiperemia da garganta.</li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                  <div class="checkboxes">
+                    <label><input type="checkbox" name="throat" value="sinal_perigo_geral"> Qualquer sinal geral de perigo</label>
+                    <label><input type="checkbox" name="throat" value="amigdalas_membranas"> Amígdalas com a presença de membranas branco-acinzentadas.</label>
+                    <label><input type="checkbox" name="throat" value="ganglios_dolorosos"> Gânglios aumentados e dolorosos no pescoço.</label>
+                    <label><input type="checkbox" name="throat" value="amigdalas_pontos_purulentos"> Amígdalas hiperemiadas com pontos purulentos ou petéquias em palato.</label>
+                    <label><input type="checkbox" name="throat" value="vesiculas_hiperemia_resfriado"> Vesículas ou hiperemia de garganta, associados a sinais de resfriado comum.</label>
+                    <label><input type="checkbox" name="throat" value="nenhum_sinal"> Não há nenhum dos sinais acima descritos.</label>
+                    <label><input type="checkbox" name="throat" value="abaulamento_palato"> Abaulamento de palato.</label>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- =========================
+                   NUTRIÇÃO
+              ========================== -->
+              <section class="clinical-section accordion-section">
+                <h3>Nutrição e anemia</h3>
+
+                <div class="accordion-content">
+
+                  <div class="clinical-guidance clinical-guidance-single" aria-label="Orientações para nutrição e anemia">
+
+                    <div class="guidance-card guidance-observe">
+                      <div class="guidance-heading">
+                        <i data-lucide="eye"></i>
+                        <strong>OBSERVAR E VERIFICAR</strong>
+                      </div>
+                      <ul>
+                        <li>Emagrecimento acentuado visível.</li>
+                        <li>Edema em ambos os pés.</li>
+                        <li>Palidez palmar grave?</li>
+                        <li>Palidez palmar leve?</li>
+                        <li>Verificar o crescimento: peso para a idade.</li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                  <div class="checkboxes">
+                    <label><input type="checkbox" name="nut" value="emagrecimento_acentuado"> Emagrecimento acentuado visível</label>
+                    <label><input type="checkbox" name="nut" value="edema_ambos_pes"> Edema em ambos os pés.</label>
+                    <label><input type="checkbox" name="nut" value="peso_idade_menor_menos3"> Peso para a idade &lt;-3 escores z.</label>
+                    <label><input type="checkbox" name="nut" value="peso_idade_menor_menos2"> Peso para a idade &lt;-2 e ≥-3 escores z.</label>
+                    <label><input type="checkbox" name="nut" value="tendencia_curva_descendente"> Tendência da curva peso/idade horizontal ou descendente.</label>
+                    <label><input type="checkbox" name="nut" value="peso_idade_maior_mais2"> Peso para a idade &gt;+2 escores z.</label>
+                    <label><input type="checkbox" name="nut" value="peso_idade_entre_menos2_mais2"> Peso para a idade ≥-2 e ≤+2 escores z.</label>
+                    <label><input type="checkbox" name="nut" value="palidez_palmar_grave"> Palidez palmar grave ou Hb abaixo de 5 g/dL.</label>
+                    <label><input type="checkbox" name="nut" value="palidez_palmar_leve"> Palidez palmar leve ou Hb de 5 g/dL a 10,9 g/dL.</label>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- =========================
+                   OBSERVAÇÕES
+              ========================== -->
+              <section class="notes-section">
+                <label for="obs">Observações / conduta já tomada (opcional)</label>
+                <textarea
+                  id="obs"
+                  rows="4"
+                  placeholder="Anotações rápidas, medicamentos administrados, orientações..."
+                ></textarea>
+              </section>
+
+
+              <!-- =========================
+                   AÇÕES
+              ========================== -->
+              <div class="actions">
+                <button class="btn" id="evaluateBtn" type="button">Avaliar</button>
+                <button id="saveHistoryBtn" class="btn ghost" type="button">Salvar Consulta</button>
+                <button class="btn ghost" id="downloadBtn" type="button">Baixar resumo</button>
+                <button class="btn ghost" type="button" onclick="window.location.href='index.html'">Voltar</button>
+              </div>
+
+
+              <!-- =========================
+                   RESULTADOS
+              ========================== -->
+              <div id="resultArea" class="results-area" style="display:none">
+
+                <div id="dangerResult" class="muted-box" style="display:none">
+                  <div class="result">
                     <div id="dangerBadge" class="badge"></div>
-
-                    <div style="margin-left:12px">
-                        <div id="dangerClassification" style="font-weight:bold"></div>
-                        <div id="dangerAdvice" class="small"></div>
+                    <div class="result-copy">
+                      <div id="dangerClassification" class="result-title"></div>
+                      <div id="dangerAdvice" class="small"></div>
                     </div>
+                  </div>
                 </div>
-            </div>
 
-
-
-
-
-            <!-- Respiração -->
-            <div id="respResult" class="muted-box" style="display:none">
-                <div class="result">
+                <div id="respResult" class="muted-box" style="display:none">
+                  <div class="result">
                     <div id="respBadge" class="badge"></div>
-
-                    <div style="margin-left:12px">
-                        <div id="respClassification" style="font-weight:bold"></div>
-                        <div id="respAdvice" class="small"></div>
+                    <div class="result-copy">
+                      <div id="respClassification" class="result-title"></div>
+                      <div id="respAdvice" class="small"></div>
                     </div>
+                  </div>
                 </div>
-            </div>
 
-            <!-- Sibilância -->
-            <div id="sibilResult" class="muted-box" style="display:none">
-                <div class="result">
+                <div id="sibilResult" class="muted-box" style="display:none">
+                  <div class="result">
                     <div id="sibilBadge" class="badge"></div>
-
-                    <div style="margin-left:12px">
-                        <div id="sibilClassification" style="font-weight:bold"></div>
-                        <div id="sibilAdvice" class="small"></div>
+                    <div class="result-copy">
+                      <div id="sibilClassification" class="result-title"></div>
+                      <div id="sibilAdvice" class="small"></div>
                     </div>
+                  </div>
                 </div>
-            </div>
 
-            <!-- Diarreia -->
-            <div id="diarrResult" class="muted-box" style="display:none">
-                <div class="result">
+                <div id="diarrResult" class="muted-box" style="display:none">
+                  <div class="result">
                     <div id="diarrBadge" class="badge"></div>
-
-                    <div style="margin-left:12px">
-                        <div id="diarrClassification" style="font-weight:bold"></div>
-                        <div id="diarrAdvice" class="small"></div>
+                    <div class="result-copy">
+                      <div id="diarrClassification" class="result-title"></div>
+                      <div id="diarrAdvice" class="small"></div>
                     </div>
+                  </div>
                 </div>
-            </div>
 
-            <!-- Febre -->
-            <div id="feverResult" class="muted-box" style="display:none">
-                <div class="result">
+                <div id="feverResult" class="muted-box" style="display:none">
+                  <div class="result">
                     <div id="feverBadge" class="badge"></div>
-
-                    <div style="margin-left:12px">
-                        <div id="feverClassification" style="font-weight:bold"></div>
-                        <div id="feverAdvice" class="small"></div>
+                    <div class="result-copy">
+                      <div id="feverClassification" class="result-title"></div>
+                      <div id="feverAdvice" class="small"></div>
                     </div>
+                  </div>
                 </div>
-            </div>
 
-            <!-- Ouvido -->
-            <div id="earResult" class="muted-box" style="display:none">
-                <div class="result">
+                <div id="earResult" class="muted-box" style="display:none">
+                  <div class="result">
                     <div id="earBadge" class="badge"></div>
-
-                    <div style="margin-left:12px">
-                        <div id="earClassification" style="font-weight:bold"></div>
-                        <div id="earAdvice" class="small"></div>
+                    <div class="result-copy">
+                      <div id="earClassification" class="result-title"></div>
+                      <div id="earAdvice" class="small"></div>
                     </div>
+                  </div>
                 </div>
-            </div>
 
-            <!-- Garganta -->
-            <div id="throatResult" class="muted-box" style="display:none">
-                <div class="result">
+                <div id="throatResult" class="muted-box" style="display:none">
+                  <div class="result">
                     <div id="throatBadge" class="badge"></div>
-
-                    <div style="margin-left:12px">
-                        <div id="throatClassification" style="font-weight:bold"></div>
-                        <div id="throatAdvice" class="small"></div>
+                    <div class="result-copy">
+                      <div id="throatClassification" class="result-title"></div>
+                      <div id="throatAdvice" class="small"></div>
                     </div>
+                  </div>
                 </div>
-            </div>
 
-            <!-- Nutrição -->
-            <div id="nutResult" class="muted-box" style="display:none">
-                <div class="result">
+                <div id="nutResult" class="muted-box" style="display:none">
+                  <div class="result">
                     <div id="nutBadge" class="badge"></div>
-
-                    <div style="margin-left:12px">
-                        <div id="nutClassification" style="font-weight:bold"></div>
-                        <div id="nutAdvice" class="small"></div>
+                    <div class="result-copy">
+                      <div id="nutClassification" class="result-title"></div>
+                      <div id="nutAdvice" class="small"></div>
                     </div>
+                  </div>
                 </div>
-            </div>
+
+              </div>
+
+            </form>
 
           </div>
 
-        </form>
-        
-      </div>
-      
-    </section>
-  </main>
-  
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+
+      const menuButton = document.getElementById("mobileMenu");
+      const sidebar = document.getElementById("sidebar");
+
+      menuButton?.addEventListener("click", () => {
+        sidebar?.classList.toggle("open");
+      });
+
+
+      /* =========================
+         ACCORDION DAS ETAPAS
+      ========================== */
+
+      const sections = document.querySelectorAll(".accordion-section");
+
+      sections.forEach((section, index) => {
+        const title = section.querySelector("h3");
+        const content = section.querySelector(".accordion-content");
+
+        if (!title || !content) {
+          return;
+        }
+
+        const contentId = `accordion-content-${index + 1}`;
+        content.id = contentId;
+
+        title.setAttribute("role", "button");
+        title.setAttribute("tabindex", "0");
+        title.setAttribute("aria-controls", contentId);
+        title.setAttribute("aria-expanded", "false");
+
+        function toggleSection() {
+
+          const isOpen = section.classList.contains("open");
+
+          /*
+          * Se a seção já estiver aberta, verifica se
+          * existe alguma alternativa marcada.
+          */
+          if (isOpen) {
+
+            const algumaAlternativaMarcada =
+              section.querySelector(
+                'input[type="checkbox"]:checked, input[type="radio"]:checked'
+              );
+
+            /*
+            * Se houver alguma opção marcada,
+            * impede que a seção seja fechada.
+            */
+            if (algumaAlternativaMarcada) {
+              return;
+            }
+          }
+
+          section.classList.toggle("open");
+
+          title.setAttribute(
+            "aria-expanded",
+            section.classList.contains("open")
+              ? "true"
+              : "false"
+          );
+        }
+
+        title.addEventListener("click", toggleSection);
+
+        title.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleSection();
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
-
-
-
-

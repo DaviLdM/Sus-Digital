@@ -1,41 +1,352 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Material Técnico</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/material.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>suAIDPI | Biblioteca AIDPI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/material.css">
+
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
+
+  <script type="module" src="js/protegerPagina.js"></script>
+  <script type="module" src="js/authState.js"></script>
+  <script type="module" src="js/logout.js"></script>
 </head>
+
 <body class="material-page">
 
-<header class="header-secundario">
-    <img
-        src="images/logoSecundaria.png"
-        alt="Logo PET Saúde Digital"
-        class="logoSecundaria"
-    >
-    <h1>Material Técnico</h1>
-</header>
+  <div class="app-shell">
 
-<main class="content">
-    <div class="material-container">
-        <iframe
-            src="./arquivos/AIDP.pdf"
-            width="100%"
-            height="900px"
-            style="
-            border: none;
-            border-radius: 12px;
-            background: white;
-            "
-        ></iframe>
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
+
+      <a class="brand" href="index.html" aria-label="Página inicial">
+        <img
+          src="images/icons/logoPrincipal.svg"
+          alt="Logo suAIDPI"
+        >
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegação principal">
+
+        <a class="nav-item" href="index.html">
+          <img
+            src="images/icons/home.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Início</span>
+        </a>
+
+        <a class="nav-item" href="avaliar.html">
+          <img
+            src="images/icons/add_box.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Novo Atendimento</span>
+        </a>
+
+        <a class="nav-item" href="avaliar.html">
+          <img
+            src="images/icons/schedule.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Em Andamento</span>
+        </a>
+
+        <a class="nav-item" href="historico.html">
+          <img
+            src="images/icons/folder.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Histórico</span>
+        </a>
+
+        <a class="nav-item active" href="material.html">
+          <img
+            src="images/icons/import_contacts.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Biblioteca AIDPI</span>
+        </a>
+
+        <a class="nav-item" href="quemSomos.html">
+          <img
+            src="images/icons/diversity_2.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Quem somos</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a class="nav-item" href="perfil.html">
+          <img
+            src="images/icons/person.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Perfil</span>
+        </a>
+
+        <a class="nav-item" href="configuracoes.html">
+          <img
+            src="images/icons/settings.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Configurações</span>
+        </a>
+
+        <a class="nav-item" href="ajuda.html">
+          <img
+            src="images/icons/help.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Ajuda e Suporte</span>
+        </a>
+
+      </nav>
+    </aside>
+
+
+    <!-- =========================
+         ÁREA PRINCIPAL
+    ========================== -->
+    <div class="page-area">
+
+      <!-- =========================
+           TOPO
+      ========================== -->
+      <header class="topbar">
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+          type="button"
+          aria-label="Abrir menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <div class="greeting-small">
+
+          <strong>
+            Olá,
+            <span id="homePrimeiroNome">carregando</span>!
+          </strong>
+
+          <span>
+            <i data-lucide="map-pin"></i>
+
+            <span id="homeUbs">
+              Carregando unidade...
+            </span>
+          </span>
+
+        </div>
+
+        <div class="user-actions">
+
+          <div
+            id="userMenu"
+            class="user-menu"
+            style="display:none"
+          >
+
+            <div
+              class="avatar"
+              id="homeAvatar"
+              aria-hidden="true"
+            >
+              US
+            </div>
+
+            <div class="user-copy">
+
+              <strong id="homeNomeCompleto">
+                Carregando usuário...
+              </strong>
+
+              <span id="homeProfissao">
+                Profissional de saúde
+              </span>
+
+            </div>
+
+            <button
+              class="chevron-button"
+              id="logoutBtn"
+              type="button"
+              title="Sair"
+              aria-label="Sair"
+            >
+              <i data-lucide="log-out"></i>
+            </button>
+
+          </div>
+
+        </div>
+      </header>
+
+
+      <!-- =========================
+           BIBLIOTECA AIDPI
+      ========================== -->
+      <main class="library-main">
+
+        <div class="library-heading">
+
+          <div class="library-title">
+
+            <span class="library-title-icon" aria-hidden="true">
+              <i data-lucide="book-open-text"></i>
+            </span>
+
+            <div>
+              <h1>Biblioteca AIDPI</h1>
+
+              <p>
+                Consulte materiais técnicos de apoio à Atenção Integrada
+                às Doenças Prevalentes na Infância.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <section class="document-panel">
+
+          <div class="document-heading">
+
+            <div class="document-heading-copy">
+              <span class="document-icon" aria-hidden="true">
+                <i data-lucide="file-text"></i>
+              </span>
+
+              <div>
+                <h2>Manual de Quadros e procedimentos AIDPI CRIANÇA</h2>
+
+                <p>
+                  Documento de referência para consulta durante os atendimentos.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="document-viewer">
+            <iframe
+              src="./arquivos/AIDP.pdf"
+              title="Manual de Quadros e procedimentos AIDPI CRIANÇA"
+            ></iframe>
+          </div>
+
+        </section>
+
+        <!-- =========================
+            VÍDEO TUTORIAL
+        ========================== -->
+
+        <section class="video-panel">
+
+            <div class="video-heading">
+
+                <div class="video-heading-copy">
+
+                <span class="video-icon" aria-hidden="true">
+                    <i data-lucide="circle-play"></i>
+                </span>
+
+                <div>
+                    <h2>Como utilizar o suAIDPI</h2>
+
+                    <p>
+                    Aprenda como navegar pela plataforma e utilizar
+                    os principais recursos durante um atendimento.
+                    </p>
+                </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="video-viewer">
+
+                <video controls preload="metadata">
+                <source
+                    src="./arquivos/tutorial-suaidpi.mp4"
+                    type="video/mp4"
+                >
+
+                Seu navegador não suporta a reprodução de vídeos.
+                </video>
+
+            </div>
+
+        </section>
+
+      </main>
+
     </div>
 
-    <a href="index.html" class="btn-voltar">Voltar</a>
-</main>
+  </div>
+
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      const menuButton =
+        document.getElementById("mobileMenu");
+
+      const sidebar =
+        document.getElementById("sidebar");
+
+      menuButton?.addEventListener("click", () => {
+        sidebar?.classList.toggle("open");
+      });
+
+    });
+  </script>
 
 </body>
+
 </html>
-
-
-

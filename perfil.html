@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>suAIDPI | Meu Perfil</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/perfil.css"
+  >
+
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
+
+  <script
+    type="module"
+    src="js/protegerPagina.js"
+  ></script>
+
+</head>
+
+
+<body class="perfil-page">
+
+  <div class="app-shell">
+
+
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+
+    <aside
+      class="sidebar"
+      id="sidebar"
+    >
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Página inicial"
+      >
+        <img
+          src="images/icons/logoPrincipal.svg"
+          alt="Logo suAIDPI"
+        >
+      </a>
+
+
+      <nav
+        class="sidebar-nav"
+        aria-label="Navegação principal"
+      >
+
+        <a
+          class="nav-item"
+          href="index.html"
+        >
+          <img
+            src="images/icons/home.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Início</span>
+        </a>
+
+
+        <a
+          class="nav-item"
+          href="avaliar.html"
+        >
+          <img
+            src="images/icons/add_box.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Novo Atendimento</span>
+        </a>
+
+
+        <a
+          class="nav-item"
+          href="avaliar.html"
+        >
+          <img
+            src="images/icons/schedule.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Em Andamento</span>
+        </a>
+
+
+        <a
+          class="nav-item"
+          href="historico.html"
+        >
+          <img
+            src="images/icons/folder.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Histórico</span>
+        </a>
+
+
+        <a
+          class="nav-item"
+          href="material.html"
+        >
+          <img
+            src="images/icons/import_contacts.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Biblioteca AIDPI</span>
+        </a>
+
+
+        <a
+          class="nav-item"
+          href="quemSomos.html"
+        >
+          <img
+            src="images/icons/diversity_2.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Quem somos</span>
+        </a>
+
+
+        <div class="nav-divider"></div>
+
+
+        <a
+          class="nav-item active"
+          href="perfil.html"
+          aria-current="page"
+        >
+          <img
+            src="images/icons/person.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Perfil</span>
+        </a>
+
+
+        <a
+          class="nav-item"
+          href="configuracoes.html"
+        >
+          <img
+            src="images/icons/settings.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Configurações</span>
+        </a>
+
+
+        <a
+          class="nav-item"
+          href="ajuda.html"
+        >
+          <img
+            src="images/icons/help.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Ajuda e Suporte</span>
+        </a>
+
+      </nav>
+
+    </aside>
+
+
+
+    <!-- =========================
+         ÁREA PRINCIPAL
+    ========================== -->
+
+    <div class="page-area">
+
+
+      <!-- =========================
+           TOPO
+      ========================== -->
+
+      <header class="topbar">
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+          type="button"
+          aria-label="Abrir menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+
+        <div class="greeting-small">
+
+          <strong>
+            Olá,
+            <span id="homePrimeiroNome">
+              carregando
+            </span>!
+          </strong>
+
+
+          <span>
+            <i data-lucide="map-pin"></i>
+
+            <span id="homeUbs">
+              Carregando unidade...
+            </span>
+          </span>
+
+        </div>
+
+
+        <div class="user-actions">
+
+          <div
+            id="userMenu"
+            class="user-menu"
+            style="display:none"
+          >
+
+            <div
+              class="avatar"
+              id="homeAvatar"
+              aria-hidden="true"
+            >
+              US
+            </div>
+
+
+            <div class="user-copy">
+
+              <strong id="homeNomeCompleto">
+                Carregando usuário...
+              </strong>
+
+              <span id="homeProfissao">
+                Profissional de saúde
+              </span>
+
+            </div>
+
+
+            <button
+              class="chevron-button"
+              id="logoutBtn"
+              type="button"
+              title="Sair"
+              aria-label="Sair"
+            >
+              <i data-lucide="log-out"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- =========================
+           CONTEÚDO DO PERFIL
+      ========================== -->
+
+      <main class="profile-main">
+
+
+        <!-- Título -->
+
+        <div class="profile-heading">
+
+          <span
+            class="profile-heading-icon"
+            aria-hidden="true"
+          >
+            <i data-lucide="user-round"></i>
+          </span>
+
+
+          <div>
+
+            <h1>
+              Meu Perfil
+            </h1>
+
+            <p>
+              Consulte e atualize seus dados pessoais,
+              profissionais e de acesso.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="profile-layout">
+
+
+          <!-- =========================
+               RESUMO DO PERFIL
+          ========================== -->
+
+          <aside class="profile-summary">
+
+            <div
+              class="profile-avatar-large"
+              id="profileAvatar"
+              aria-hidden="true"
+            >
+              US
+            </div>
+
+
+            <h2 id="profileSummaryName">
+              Carregando...
+            </h2>
+
+
+            <p
+              class="profile-summary-profession"
+              id="profileSummaryProfession"
+            >
+              Profissional de saúde
+            </p>
+
+
+            <div class="summary-divider"></div>
+
+
+            <div class="summary-item">
+
+              <span class="summary-icon">
+                <i data-lucide="building-2"></i>
+              </span>
+
+              <div>
+                <span>
+                  Unidade Básica de Saúde
+                </span>
+
+                <strong id="profileSummaryUbs">
+                  Carregando...
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="summary-item">
+
+              <span class="summary-icon">
+                <i data-lucide="hospital"></i>
+              </span>
+
+              <div>
+                <span>
+                  Hospital de referência
+                </span>
+
+                <strong id="profileSummaryHospital">
+                  Não cadastrado
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="summary-item">
+
+              <span class="summary-icon">
+                <i data-lucide="mail"></i>
+              </span>
+
+              <div>
+                <span>
+                  E-mail
+                </span>
+
+                <strong id="profileSummaryEmail">
+                  Carregando...
+                </strong>
+              </div>
+
+            </div>
+
+          </aside>
+
+
+
+          <!-- =========================
+               FORMULÁRIO
+          ========================== -->
+
+          <section class="profile-card">
+
+            <div class="profile-card-heading">
+
+              <div>
+
+                <h2>
+                  Informações do perfil
+                </h2>
+
+                <p>
+                  Faça as alterações desejadas e salve ao final.
+                </p>
+
+              </div>
+
+
+              <span
+                class="save-state"
+                id="saveState"
+                role="status"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+
+            <form
+              id="profileForm"
+              autocomplete="on"
+            >
+
+
+              <!-- =========================
+                   DADOS PESSOAIS
+              ========================== -->
+
+              <section class="form-section">
+
+                <div class="section-heading">
+
+                  <span class="section-icon">
+                    <i data-lucide="id-card"></i>
+                  </span>
+
+                  <div>
+
+                    <h3>
+                      Dados pessoais
+                    </h3>
+
+                    <p>
+                      Informações de identificação do profissional.
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                <div class="form-grid form-grid-2">
+
+
+                  <div class="field">
+
+                    <label for="primeiroNome">
+                      Primeiro nome
+                    </label>
+
+                    <input
+                      id="primeiroNome"
+                      name="primeiroNome"
+                      type="text"
+                      autocomplete="given-name"
+                      maxlength="50"
+                      required
+                    >
+
+                  </div>
+
+
+
+                  <div class="field">
+
+                    <label for="sobrenome">
+                      Sobrenome
+                    </label>
+
+                    <input
+                      id="sobrenome"
+                      name="sobrenome"
+                      type="text"
+                      autocomplete="family-name"
+                      maxlength="100"
+                      required
+                    >
+
+                  </div>
+
+
+                </div>
+
+              </section>
+
+
+
+              <!-- =========================
+                   DADOS PROFISSIONAIS
+              ========================== -->
+
+              <section class="form-section">
+
+                <div class="section-heading">
+
+                  <span class="section-icon">
+                    <i data-lucide="briefcase-medical"></i>
+                  </span>
+
+                  <div>
+
+                    <h3>
+                      Dados profissionais
+                    </h3>
+
+                    <p>
+                      Informações utilizadas durante o uso do suAIDPI.
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                <div class="form-grid form-grid-2">
+
+
+                  <div class="field">
+
+                    <label for="profissao">
+                      Profissão
+                    </label>
+
+                    <select
+                      id="profissao"
+                      name="profissao"
+                      required
+                    >
+
+                      <option
+                        value=""
+                        disabled
+                      >
+                        Selecione sua profissão
+                      </option>
+
+                      <option value="Médico">
+                        Médico
+                      </option>
+
+                      <option value="Enfermeiro">
+                        Enfermeiro
+                      </option>
+
+                    </select>
+
+                  </div>
+
+
+
+                  <div class="field">
+
+                    <label for="ubs">
+                      Unidade Básica de Saúde
+                    </label>
+
+                    <input
+                      id="ubs"
+                      name="ubs"
+                      type="text"
+                      autocomplete="organization"
+                      maxlength="100"
+                      required
+                    >
+
+                  </div>
+
+
+
+                  <div class="field field-full">
+
+                    <label for="hospitalReferencia">
+                      Hospital de referência para encaminhamentos
+                    </label>
+
+                    <input
+                      id="hospitalReferencia"
+                      name="hospitalReferencia"
+                      type="text"
+                      autocomplete="organization"
+                      maxlength="120"
+                      placeholder="Informe o hospital de referência"
+                      required
+                    >
+
+                    <small class="field-help">
+                      Este hospital será utilizado como referência
+                      para os encaminhamentos realizados pelo sistema.
+                    </small>
+
+                  </div>
+
+
+                </div>
+
+              </section>
+
+
+
+              <!-- =========================
+                   CONTA
+              ========================== -->
+
+              <section class="form-section">
+
+                <div class="section-heading">
+
+                  <span class="section-icon">
+                    <i data-lucide="shield-check"></i>
+                  </span>
+
+                  <div>
+
+                    <h3>
+                      Conta e segurança
+                    </h3>
+
+                    <p>
+                      Altere seu e-mail ou defina uma nova senha.
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="form-grid">
+
+
+                  <div class="field">
+
+                    <label for="email">
+                      E-mail
+                    </label>
+
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      required
+                    >
+
+                    <small class="field-help">
+                      Se o e-mail for alterado, será necessário
+                      confirmar o novo endereço.
+                    </small>
+
+                  </div>
+
+
+
+                  <div class="security-box">
+
+                    <div class="security-box-heading">
+
+                      <span class="security-icon">
+                        <i data-lucide="key-round"></i>
+                      </span>
+
+                      <div>
+
+                        <strong>
+                          Alterar senha
+                        </strong>
+
+                        <p>
+                          Sua senha atual não pode ser visualizada.
+                          Preencha os campos abaixo somente se quiser
+                          definir uma nova senha.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+
+
+                    <div class="form-grid form-grid-2">
+
+
+                      <div class="field">
+
+                        <label for="novaSenha">
+                          Nova senha
+                        </label>
+
+                        <div class="password-field">
+
+                          <input
+                            id="novaSenha"
+                            name="novaSenha"
+                            type="password"
+                            autocomplete="new-password"
+                            minlength="6"
+                            placeholder="Mínimo de 6 caracteres"
+                          >
+
+                          <button
+                            class="password-toggle"
+                            type="button"
+                            data-toggle-password="novaSenha"
+                            aria-label="Mostrar nova senha"
+                            title="Mostrar senha"
+                          >
+                            <i data-lucide="eye"></i>
+                          </button>
+
+                        </div>
+
+                      </div>
+
+
+
+                      <div class="field">
+
+                        <label for="confirmarNovaSenha">
+                          Confirmar nova senha
+                        </label>
+
+                        <div class="password-field">
+
+                          <input
+                            id="confirmarNovaSenha"
+                            name="confirmarNovaSenha"
+                            type="password"
+                            autocomplete="new-password"
+                            minlength="6"
+                            placeholder="Digite novamente"
+                          >
+
+                          <button
+                            class="password-toggle"
+                            type="button"
+                            data-toggle-password="confirmarNovaSenha"
+                            aria-label="Mostrar confirmação da senha"
+                            title="Mostrar senha"
+                          >
+                            <i data-lucide="eye"></i>
+                          </button>
+
+                        </div>
+
+                      </div>
+
+
+                    </div>
+
+                  </div>
+
+
+
+                  <!--
+                    A senha atual é exigida SOMENTE se o usuário
+                    tentar alterar e-mail e/ou senha.
+                  -->
+
+                  <div
+                    class="reauth-box"
+                    id="reauthBox"
+                    hidden
+                  >
+
+                    <span class="reauth-icon">
+                      <i data-lucide="lock-keyhole"></i>
+                    </span>
+
+
+                    <div class="reauth-content">
+
+                      <strong>
+                        Confirme sua identidade
+                      </strong>
+
+                      <p>
+                        Para alterar o e-mail ou a senha,
+                        informe sua senha atual.
+                      </p>
+
+
+                      <div class="field">
+
+                        <label for="senhaAtual">
+                          Senha atual
+                        </label>
+
+                        <div class="password-field">
+
+                          <input
+                            id="senhaAtual"
+                            name="senhaAtual"
+                            type="password"
+                            autocomplete="current-password"
+                            placeholder="Digite sua senha atual"
+                          >
+
+                          <button
+                            class="password-toggle"
+                            type="button"
+                            data-toggle-password="senhaAtual"
+                            aria-label="Mostrar senha atual"
+                            title="Mostrar senha"
+                          >
+                            <i data-lucide="eye"></i>
+                          </button>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+              </section>
+
+
+
+              <!-- =========================
+                   MENSAGEM
+              ========================== -->
+
+              <div
+                id="profileMessage"
+                class="profile-message"
+                role="alert"
+                aria-live="polite"
+              ></div>
+
+
+
+              <!-- =========================
+                   BOTÕES
+              ========================== -->
+
+              <div class="form-actions">
+
+                <button
+                  class="btn-secondary"
+                  id="discardBtn"
+                  type="button"
+                >
+                  <i data-lucide="rotate-ccw"></i>
+                  Descartar alterações
+                </button>
+
+
+                <button
+                  class="btn-primary"
+                  id="saveProfileBtn"
+                  type="submit"
+                >
+                  <i data-lucide="save"></i>
+                  Salvar alterações
+                </button>
+
+              </div>
+
+
+            </form>
+
+          </section>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <script
+    type="module"
+    src="js/authState.js"
+  ></script>
+
+  <script
+    type="module"
+    src="js/logout.js"
+  ></script>
+
+  <script
+    type="module"
+    src="js/perfil.js"
+  ></script>
+
+
+  <script>
+
+    window.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+
+
+        const menuButton =
+          document.getElementById(
+            "mobileMenu"
+          );
+
+
+        const sidebar =
+          document.getElementById(
+            "sidebar"
+          );
+
+
+        menuButton?.addEventListener(
+          "click",
+          () => {
+
+            sidebar?.classList.toggle(
+              "open"
+            );
+
+          }
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>

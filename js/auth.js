@@ -104,6 +104,9 @@ if (cadastroBtn) {
     const ubs =
       document.getElementById("ubs")?.value.trim();
 
+    const hospitalReferencia =
+      document.getElementById("hospitalReferencia")?.value.trim();
+
     const confirmarSenha =
       document.getElementById("confirmarSenha")?.value;
 
@@ -117,6 +120,7 @@ if (cadastroBtn) {
       !sobrenome ||
       !profissao ||
       !ubs ||
+      !hospitalReferencia ||
       !emailInformado ||
       !senhaInformada ||
       !confirmarSenha
@@ -168,6 +172,7 @@ if (cadastroBtn) {
           nomeCompleto,
           profissao,
           ubs,
+          hospitalReferencia,
           email: usuarioCriado.email,
           criadoEm: serverTimestamp()
         }

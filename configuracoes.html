@@ -3,18 +3,34 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>suAIDPI | Histórico de Atendimentos</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>suAIDPI | Configurações</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="css/historico.css">
+  <link
+    rel="stylesheet"
+    href="css/configuracoes.css"
+  >
 
   <script
     src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
@@ -22,34 +38,57 @@
   ></script>
 
   <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    type="module"
+    src="js/protegerPagina.js"
   ></script>
 
-  <script type="module" src="js/protegerPagina.js"></script>
-  <script type="module" src="js/authState.js"></script>
-  <script type="module" src="js/logout.js"></script>
-  <script type="module" src="js/historico.js"></script>
+  <script
+    type="module"
+    src="js/authState.js"
+  ></script>
+
+  <script
+    type="module"
+    src="js/logout.js"
+  ></script>
 </head>
 
-<body class="historico-page">
+
+<body class="configuracoes-page">
 
   <div class="app-shell">
+
 
     <!-- =========================
          MENU LATERAL
     ========================== -->
-    <aside class="sidebar" id="sidebar">
 
-      <a class="brand" href="index.html" aria-label="Página inicial">
+    <aside
+      class="sidebar"
+      id="sidebar"
+    >
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Página inicial"
+      >
         <img
           src="images/icons/logoPrincipal.svg"
           alt="Logo suAIDPI"
         >
       </a>
 
-      <nav class="sidebar-nav" aria-label="Navegação principal">
 
-        <a class="nav-item" href="index.html">
+      <nav
+        class="sidebar-nav"
+        aria-label="Navegação principal"
+      >
+
+        <a
+          class="nav-item"
+          href="index.html"
+        >
           <img
             src="images/icons/home.svg"
             alt=""
@@ -59,7 +98,11 @@
           <span>Início</span>
         </a>
 
-        <a class="nav-item" href="avaliar.html">
+
+        <a
+          class="nav-item"
+          href="avaliar.html"
+        >
           <img
             src="images/icons/add_box.svg"
             alt=""
@@ -69,7 +112,11 @@
           <span>Novo Atendimento</span>
         </a>
 
-        <a class="nav-item" href="avaliar.html">
+
+        <a
+          class="nav-item"
+          href="avaliar.html"
+        >
           <img
             src="images/icons/schedule.svg"
             alt=""
@@ -79,7 +126,11 @@
           <span>Em Andamento</span>
         </a>
 
-        <a class="nav-item active" href="historico.html">
+
+        <a
+          class="nav-item"
+          href="historico.html"
+        >
           <img
             src="images/icons/folder.svg"
             alt=""
@@ -89,7 +140,11 @@
           <span>Histórico</span>
         </a>
 
-        <a class="nav-item" href="material.html">
+
+        <a
+          class="nav-item"
+          href="material.html"
+        >
           <img
             src="images/icons/import_contacts.svg"
             alt=""
@@ -99,7 +154,11 @@
           <span>Biblioteca AIDPI</span>
         </a>
 
-        <a class="nav-item" href="quemSomos.html">
+
+        <a
+          class="nav-item"
+          href="quemSomos.html"
+        >
           <img
             src="images/icons/diversity_2.svg"
             alt=""
@@ -109,9 +168,14 @@
           <span>Quem somos</span>
         </a>
 
+
         <div class="nav-divider"></div>
 
-        <a class="nav-item" href="perfil.html">
+
+        <a
+          class="nav-item"
+          href="perfil.html"
+        >
           <img
             src="images/icons/person.svg"
             alt=""
@@ -121,7 +185,12 @@
           <span>Perfil</span>
         </a>
 
-        <a class="nav-item" href="configuracoes.html">
+
+        <a
+          class="nav-item active"
+          href="configuracoes.html"
+          aria-current="page"
+        >
           <img
             src="images/icons/settings.svg"
             alt=""
@@ -131,7 +200,11 @@
           <span>Configurações</span>
         </a>
 
-        <a class="nav-item" href="ajuda.html">
+
+        <a
+          class="nav-item"
+          href="ajuda.html"
+        >
           <img
             src="images/icons/help.svg"
             alt=""
@@ -142,17 +215,22 @@
         </a>
 
       </nav>
+
     </aside>
 
 
+
     <!-- =========================
-         ÁREA PRINCIPAL
+         ÁREA DA PÁGINA
     ========================== -->
+
     <div class="page-area">
+
 
       <!-- =========================
            TOPO
       ========================== -->
+
       <header class="topbar">
 
         <button
@@ -164,12 +242,16 @@
           <i data-lucide="menu"></i>
         </button>
 
+
         <div class="greeting-small">
 
           <strong>
             Olá,
-            <span id="homePrimeiroNome">carregando</span>!
+            <span id="homePrimeiroNome">
+              carregando
+            </span>!
           </strong>
+
 
           <span>
             <i data-lucide="map-pin"></i>
@@ -180,6 +262,7 @@
           </span>
 
         </div>
+
 
         <div class="user-actions">
 
@@ -197,7 +280,9 @@
               US
             </div>
 
+
             <div class="user-copy">
+
               <strong id="homeNomeCompleto">
                 Carregando usuário...
               </strong>
@@ -205,7 +290,9 @@
               <span id="homeProfissao">
                 Profissional de saúde
               </span>
+
             </div>
+
 
             <button
               class="chevron-button"
@@ -220,60 +307,90 @@
           </div>
 
         </div>
+
       </header>
 
 
+
       <!-- =========================
-           HISTÓRICO
+           CONFIGURAÇÕES
       ========================== -->
-      <main class="history-main">
 
-        <div class="history-heading">
+      <main class="settings-main">
 
-          <div class="history-title">
-            <span class="history-title-icon" aria-hidden="true">
-              <i data-lucide="folder-clock"></i>
-            </span>
 
-            <div>
-              <h1>Histórico de Atendimentos</h1>
-              <p>
-                Consulte os atendimentos realizados e acesse os registros anteriores.
-              </p>
-            </div>
+        <div class="settings-heading">
+
+          <span
+            class="settings-heading-icon"
+            aria-hidden="true"
+          >
+            <i data-lucide="settings"></i>
+          </span>
+
+
+          <div>
+
+            <h1>
+              Configurações
+            </h1>
+
+            <p>
+              Preferências e recursos adicionais do suAIDPI.
+            </p>
+
           </div>
 
         </div>
 
 
-        <section class="history-panel">
 
-          <div class="history-panel-header">
-            <div>
-              <h2>Atendimentos realizados</h2>
-              <p>Seus registros aparecem abaixo do mais recente para o mais antigo.</p>
-            </div>
+        <section class="settings-card">
 
-            <a class="new-appointment-button" href="avaliar.html">
-              <i data-lucide="plus"></i>
-              Novo atendimento
-            </a>
+          <div class="coming-soon-icon">
+            <i data-lucide="sparkles"></i>
           </div>
 
 
-          <!--
-            Este ID foi mantido exatamente como no HTML antigo
-            para não alterar a lógica do historico.js.
-          -->
-          <div
-            id="historicoLista"
-            class="historico-list"
-            aria-live="polite"
-          >
-            <!-- Os registros continuam sendo criados pelo historico.js -->
+          <span class="coming-soon-badge">
+            Futuras atualizações
+          </span>
+
+
+          <h2>
+            Novos recursos de acessibilidade
+          </h2>
+
+
+          <p class="coming-soon-text">
+            Em futuras atualizações, pretendemos disponibilizar
+            recursos de acessibilidade visual para tornar o suAIDPI
+            ainda mais confortável e inclusivo durante o uso.
+          </p>
+
+
+          <p class="coming-soon-text secondary">
+            Quem sabe, no futuro, também possamos explorar recursos
+            de acessibilidade sonora — embora essa possibilidade ainda
+            seja pouco provável e não faça parte das funcionalidades
+            atuais do sistema.
+          </p>
+
+
+          <div class="notice-box">
+
+            <i data-lucide="info"></i>
+
+            <p>
+              Esta página é apenas informativa no momento.
+              Nenhuma configuração de acessibilidade está implementada
+              ou disponível para ativação nesta versão.
+            </p>
+
           </div>
 
         </section>
+
 
       </main>
 
@@ -282,59 +399,50 @@
   </div>
 
 
+
+  <!-- =========================
+       SCRIPT DE INTERFACE
+  ========================== -->
+
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
 
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
+    window.addEventListener(
+      "DOMContentLoaded",
+      () => {
 
-      const menuButton =
-        document.getElementById("mobileMenu");
-
-      const sidebar =
-        document.getElementById("sidebar");
-
-      menuButton?.addEventListener("click", () => {
-        sidebar?.classList.toggle("open");
-      });
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
 
 
-      /*
-       * O historico.js cria os registros dinamicamente.
-       * Este observer só acrescenta uma classe visual aos
-       * elementos criados; não altera os dados nem a lógica.
-       */
-      const historicoLista =
-        document.getElementById("historicoLista");
+        const menuButton =
+          document.getElementById(
+            "mobileMenu"
+          );
 
-      if (historicoLista) {
 
-        const estilizarRegistros = () => {
+        const sidebar =
+          document.getElementById(
+            "sidebar"
+          );
 
-          Array.from(historicoLista.children)
-            .forEach((item) => {
-              item.classList.add("history-record");
-            });
 
-          if (window.lucide) {
-            window.lucide.createIcons();
+        menuButton?.addEventListener(
+          "click",
+          () => {
+
+            sidebar?.classList.toggle(
+              "open"
+            );
+
           }
-        };
-
-        estilizarRegistros();
-
-        const observer =
-          new MutationObserver(estilizarRegistros);
-
-        observer.observe(
-          historicoLista,
-          { childList: true }
         );
-      }
 
-    });
+      }
+    );
+
   </script>
 
 </body>
+
 </html>

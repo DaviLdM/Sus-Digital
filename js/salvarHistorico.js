@@ -234,6 +234,13 @@ export async function salvarHistorico() {
 
         exame:{
 
+            // Respostas gerais também ficam salvas para o PDF.
+            tosse: cough,
+
+            diarreia: diarrhea,
+
+            febre: fever,
+
             tosseDias: duration_cough,
 
             frequenciaRespiratoria: rr,

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>suAIDPI | Ajuda e Suporte</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/ajuda.css">
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script type="module" src="js/protegerPagina.js"></script>
+  <script type="module" src="js/authState.js"></script>
+  <script type="module" src="js/logout.js"></script>
+</head>
+
+<body class="ajuda-page">
+
+  <div class="app-shell">
+
+    <aside class="sidebar" id="sidebar">
+
+      <a class="brand" href="index.html" aria-label="Página inicial">
+        <img src="images/icons/logoPrincipal.svg" alt="Logo suAIDPI">
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegação principal">
+
+        <a class="nav-item" href="index.html">
+          <img src="images/icons/home.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Início</span>
+        </a>
+
+        <a class="nav-item" href="avaliar.html">
+          <img src="images/icons/add_box.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Novo Atendimento</span>
+        </a>
+
+        <a class="nav-item" href="avaliar.html">
+          <img src="images/icons/schedule.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Em Andamento</span>
+        </a>
+
+        <a class="nav-item" href="historico.html">
+          <img src="images/icons/folder.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Histórico</span>
+        </a>
+
+        <a class="nav-item" href="material.html">
+          <img src="images/icons/import_contacts.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Biblioteca AIDPI</span>
+        </a>
+
+        <a class="nav-item" href="quemSomos.html">
+          <img src="images/icons/diversity_2.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Quem somos</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a class="nav-item" href="perfil.html">
+          <img src="images/icons/person.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Perfil</span>
+        </a>
+
+        <a class="nav-item" href="configuracoes.html">
+          <img src="images/icons/settings.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Configurações</span>
+        </a>
+
+        <a class="nav-item active" href="ajuda.html" aria-current="page">
+          <img src="images/icons/help.svg" alt="" class="nav-icon" aria-hidden="true">
+          <span>Ajuda e Suporte</span>
+        </a>
+
+      </nav>
+    </aside>
+
+    <div class="page-area">
+
+      <header class="topbar">
+
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Abrir menu">
+          <i data-lucide="menu"></i>
+        </button>
+
+        <div class="greeting-small">
+          <strong>
+            Olá, <span id="homePrimeiroNome">carregando</span>!
+          </strong>
+
+          <span>
+            <i data-lucide="map-pin"></i>
+            <span id="homeUbs">Carregando unidade...</span>
+          </span>
+        </div>
+
+        <div class="user-actions">
+
+          <div id="userMenu" class="user-menu" style="display:none">
+
+            <div class="avatar" id="homeAvatar" aria-hidden="true">
+              US
+            </div>
+
+            <div class="user-copy">
+              <strong id="homeNomeCompleto">Carregando usuário...</strong>
+              <span id="homeProfissao">Profissional de saúde</span>
+            </div>
+
+            <button
+              class="chevron-button"
+              id="logoutBtn"
+              type="button"
+              title="Sair"
+              aria-label="Sair"
+            >
+              <i data-lucide="log-out"></i>
+            </button>
+
+          </div>
+
+        </div>
+      </header>
+
+      <main class="help-main">
+
+        <div class="help-heading">
+
+          <span class="help-heading-icon" aria-hidden="true">
+            <i data-lucide="circle-help"></i>
+          </span>
+
+          <div>
+            <h1>Ajuda e Suporte</h1>
+            <p>Canais de contato para dúvidas, suporte e informações sobre o projeto.</p>
+          </div>
+
+        </div>
+
+        <section class="help-card">
+
+          <div class="help-main-icon">
+            <i data-lucide="life-buoy"></i>
+          </div>
+
+          <span class="help-badge">Estamos à disposição</span>
+
+          <h2>Precisa de ajuda?</h2>
+
+          <p class="help-intro">
+            Em caso de dúvidas sobre o uso do suAIDPI, para relatar algum problema
+            ou bug encontrado na plataforma, ou simplesmente para entrar em contato,
+            utilize um dos canais abaixo.
+          </p>
+
+          <div class="contact-grid">
+
+            <a
+              class="contact-card"
+              href="mailto:davi.lima.medeiros@ccc.ufcg.edu.br"
+            >
+
+              <span class="contact-icon">
+                <i data-lucide="mail"></i>
+              </span>
+
+              <div>
+                <span class="contact-label">Contato e suporte</span>
+                <strong>davi.lima.medeiros@ccc.ufcg.edu.br</strong>
+                <p>Dúvidas, sugestões e relatos de bugs.</p>
+              </div>
+
+              <i class="contact-arrow" data-lucide="arrow-up-right" aria-hidden="true"></i>
+
+            </a>
+
+            <a
+              class="contact-card"
+              href="https://www.instagram.com/pet_saude_digital_ufcg?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+              <span class="contact-icon">
+                <i data-lucide="instagram"></i>
+              </span>
+
+              <div>
+                <span class="contact-label">PET Informação e Saúde Digital</span>
+                <strong>@pet_saude_digital_ufcg</strong>
+                <p>Conheça os projetos e acompanhe as atividades do PET.</p>
+              </div>
+
+              <i class="contact-arrow" data-lucide="arrow-up-right" aria-hidden="true"></i>
+
+            </a>
+
+          </div>
+
+          <div class="project-note">
+            <i data-lucide="heart-handshake"></i>
+
+            <p>
+              Foi um prazer participar do desenvolvimento do suAIDPI, e será um prazer ouvir o seu feedback!
+            </p>
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      const menuButton = document.getElementById("mobileMenu");
+      const sidebar = document.getElementById("sidebar");
+
+      menuButton?.addEventListener("click", () => {
+        sidebar?.classList.toggle("open");
+      });
+    });
+  </script>
+
+</body>
+</html>
