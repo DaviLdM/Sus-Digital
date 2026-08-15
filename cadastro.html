@@ -1,216 +1,513 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Cadastro - suAIDPI</title>
+  <title>suAIDPI | Criar conta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/cadastro.css">
+
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
 </head>
+
 
 <body class="cadastro-page">
 
-  <main class="container">
+  <main class="cadastro-shell">
 
-    <section
-      class="card cadastro-card"
-      aria-labelledby="tituloCadastro"
-    >
 
-      <h2 id="tituloCadastro">
-        Criar conta
-      </h2>
+    <!-- =========================
+         LADO VISUAL / IDENTIDADE
+    ========================== -->
 
-      <p class="cadastro-descricao">
-        Preencha seus dados profissionais para acessar o sistema.
-      </p>
+    <section class="cadastro-brand-panel">
 
-      <form id="cadastroForm">
+      <div class="brand-content">
 
-        <div class="campo-formulario">
-          <label for="primeiroNome">
-            Primeiro nome
-          </label>
-
-          <input
-            type="text"
-            id="primeiroNome"
-            name="primeiroNome"
-            placeholder="Digite seu primeiro nome"
-            autocomplete="given-name"
-            maxlength="50"
-            required
+        <a
+          class="cadastro-logo"
+          href="login.html"
+          aria-label="Voltar para o login"
+        >
+          <img
+            src="images/icons/logoPrincipal.svg"
+            alt="Logo suAIDPI"
           >
-        </div>
+        </a>
 
-        <div class="campo-formulario">
-          <label for="sobrenome">
-              Sobrenome
-          </label>
 
-          <input
-              type="text"
-              id="sobrenome"
-              placeholder="Digite seu sobrenome"
-              autocomplete="family-name"
-              maxlength="100"
-              required
-          >
-        </div>
+        <div class="brand-copy">
 
-        <div class="campo-formulario">
-          <label for="profissao">
-            Profissão
-          </label>
+          <span class="brand-badge">
+            Estratégia AIDPI
+          </span>
 
-          <select
-            id="profissao"
-            name="profissao"
-            required
-          >
-            <option value="" selected disabled>
-              Selecione sua profissão
-            </option>
+          <h1>
+            Cuidado infantil com informação organizada e acessível.
+          </h1>
 
-            <option value="Médico">
-              Médico
-            </option>
-
-            <option value="Enfermeiro">
-              Enfermeiro
-            </option>
-          </select>
-        </div>
-
-        <div class="campo-formulario">
-          <label for="ubs">
-            Unidade Básica de Saúde
-          </label>
-
-          <input
-            type="text"
-            id="ubs"
-            name="ubs"
-            placeholder="Ex.: UBS João Rique"
-            autocomplete="organization"
-            maxlength="100"
-            required
-          >
-        </div>
-
-        <div class="campo-formulario">
-          <label for="hospitalReferencia">
-            Hospital de referência para encaminhamentos
-          </label>
-
-          <input
-            type="text"
-            id="hospitalReferencia"
-            name="hospitalReferencia"
-            placeholder="Ex.: Hospital Municipal de Referência"
-            autocomplete="organization"
-            maxlength="120"
-            required
-          >
-
-          <small class="ajuda-campo">
-            Este hospital será utilizado como referência nos encaminhamentos.
-          </small>
-        </div>
-
-        <div class="campo-formulario">
-          <label for="email">
-            E-mail
-          </label>
-
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Digite seu e-mail"
-            autocomplete="email"
-            required
-          >
-        </div>
-
-        <div class="campo-formulario">
-          <label for="senha">
-            Senha
-          </label>
-
-          <input
-            type="password"
-            id="senha"
-            name="senha"
-            placeholder="Digite sua senha"
-            autocomplete="new-password"
-            minlength="6"
-            required
-          >
-
-          <small class="ajuda-campo">
-            A senha deve possuir pelo menos 6 caracteres.
-          </small>
-        </div>
-
-        <div class="campo-formulario">
-          <label for="confirmarSenha">
-            Confirmar senha
-          </label>
-
-          <input
-            type="password"
-            id="confirmarSenha"
-            name="confirmarSenha"
-            placeholder="Digite a senha novamente"
-            autocomplete="new-password"
-            minlength="6"
-            required
-          >
-        </div>
-
-        <div class="actions cadastro-actions">
-
-          <button
-            class="btn cadastro-submit"
-            id="cadastroBtn"
-            type="submit"
-          >
-            Criar conta
-          </button>
-
-          <a
-            class="btn cadastro-voltar"
-            href="login.html"
-          >
-            Voltar para o login
-          </a>
+          <p>
+            Cadastre seus dados profissionais para utilizar os recursos
+            do suAIDPI durante os atendimentos.
+          </p>
 
         </div>
 
-        <p
-          id="mensagem"
-          class="mensagem-formulario"
-          role="alert"
-          aria-live="polite"
-        ></p>
 
-      </form>
+        <div class="brand-features">
+
+          <div class="brand-feature">
+
+            <span class="brand-feature-icon">
+              <i data-lucide="clipboard-check"></i>
+            </span>
+
+            <div>
+              <strong>Avaliação organizada</strong>
+              <span>
+                Registre e acompanhe as informações do atendimento.
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="brand-feature">
+
+            <span class="brand-feature-icon">
+              <i data-lucide="file-text"></i>
+            </span>
+
+            <div>
+              <strong>Documentos padronizados</strong>
+              <span>
+                Gere relatórios e encaminhamentos a partir dos dados salvos.
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="brand-feature">
+
+            <span class="brand-feature-icon">
+              <i data-lucide="shield-check"></i>
+            </span>
+
+            <div>
+              <strong>Acesso individual</strong>
+              <span>
+                Os atendimentos permanecem vinculados ao profissional autenticado.
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="brand-decoration brand-decoration-one"></div>
+      <div class="brand-decoration brand-decoration-two"></div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FORMULÁRIO
+    ========================== -->
+
+    <section class="cadastro-form-panel">
+
+      <div class="cadastro-form-wrapper">
+
+
+        <div class="cadastro-mobile-logo">
+
+          <img
+            src="images/icons/logoPrincipal.svg"
+            alt="Logo suAIDPI"
+          >
+
+        </div>
+
+
+        <header class="cadastro-header">
+
+          <span class="cadastro-header-icon" aria-hidden="true">
+            <i data-lucide="user-plus"></i>
+          </span>
+
+          <div>
+            <h2 id="tituloCadastro">
+              Criar conta
+            </h2>
+
+            <p>
+              Preencha seus dados profissionais para acessar o sistema.
+            </p>
+          </div>
+
+        </header>
+
+
+
+        <form
+          id="cadastroForm"
+          class="cadastro-form"
+        >
+
+
+          <!-- =========================
+               DADOS PESSOAIS
+          ========================== -->
+
+          <section class="form-section">
+
+            <div class="form-section-title">
+
+              <i data-lucide="user-round"></i>
+
+              <div>
+                <h3>Dados pessoais</h3>
+                <p>Informe seu nome para identificação no sistema.</p>
+              </div>
+
+            </div>
+
+
+            <div class="form-grid form-grid-2">
+
+              <div class="campo-formulario">
+
+                <label for="primeiroNome">
+                  Primeiro nome
+                </label>
+
+                <input
+                  type="text"
+                  id="primeiroNome"
+                  name="primeiroNome"
+                  placeholder="Digite seu primeiro nome"
+                  autocomplete="given-name"
+                  maxlength="50"
+                  required
+                >
+
+              </div>
+
+
+              <div class="campo-formulario">
+
+                <label for="sobrenome">
+                  Sobrenome
+                </label>
+
+                <input
+                  type="text"
+                  id="sobrenome"
+                  name="sobrenome"
+                  placeholder="Digite seu sobrenome"
+                  autocomplete="family-name"
+                  maxlength="100"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- =========================
+               DADOS PROFISSIONAIS
+          ========================== -->
+
+          <section class="form-section">
+
+            <div class="form-section-title">
+
+              <i data-lucide="briefcase-medical"></i>
+
+              <div>
+                <h3>Dados profissionais</h3>
+                <p>
+                  Essas informações serão utilizadas durante os atendimentos e encaminhamentos.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="form-grid form-grid-2">
+
+              <div class="campo-formulario">
+
+                <label for="profissao">
+                  Profissão
+                </label>
+
+                <select
+                  id="profissao"
+                  name="profissao"
+                  required
+                >
+
+                  <option
+                    value=""
+                    selected
+                    disabled
+                  >
+                    Selecione sua profissão
+                  </option>
+
+                  <option value="Médico">
+                    Médico
+                  </option>
+
+                  <option value="Enfermeiro">
+                    Enfermeiro
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="campo-formulario">
+
+                <label for="ubs">
+                  Unidade Básica de Saúde
+                </label>
+
+                <input
+                  type="text"
+                  id="ubs"
+                  name="ubs"
+                  placeholder="Ex.: UBS João Rique"
+                  autocomplete="organization"
+                  maxlength="100"
+                  required
+                >
+
+              </div>
+
+
+              <div class="campo-formulario field-full">
+
+                <label for="hospitalReferencia">
+                  Hospital de referência para encaminhamentos
+                </label>
+
+                <input
+                  type="text"
+                  id="hospitalReferencia"
+                  name="hospitalReferencia"
+                  placeholder="Ex.: Hospital Municipal de Referência"
+                  autocomplete="organization"
+                  maxlength="120"
+                  required
+                >
+
+                <small class="ajuda-campo">
+                  Este hospital será utilizado como referência nos encaminhamentos.
+                </small>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- =========================
+               CONTA
+          ========================== -->
+
+          <section class="form-section">
+
+            <div class="form-section-title">
+
+              <i data-lucide="lock-keyhole"></i>
+
+              <div>
+                <h3>Dados de acesso</h3>
+                <p>
+                  Utilize um e-mail válido e escolha uma senha para acessar sua conta.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+              <div class="campo-formulario">
+
+                <label for="email">
+                  E-mail
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Digite seu e-mail"
+                  autocomplete="email"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-grid form-grid-2">
+
+                <div class="campo-formulario">
+
+                  <label for="senha">
+                    Senha
+                  </label>
+
+                  <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    placeholder="Digite sua senha"
+                    autocomplete="new-password"
+                    minlength="6"
+                    required
+                  >
+
+                  <small class="ajuda-campo">
+                    A senha deve possuir pelo menos 6 caracteres.
+                  </small>
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                  <label for="confirmarSenha">
+                    Confirmar senha
+                  </label>
+
+                  <input
+                    type="password"
+                    id="confirmarSenha"
+                    name="confirmarSenha"
+                    placeholder="Digite a senha novamente"
+                    autocomplete="new-password"
+                    minlength="6"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- =========================
+               MENSAGEM
+          ========================== -->
+
+          <p
+            id="mensagem"
+            class="mensagem-formulario"
+            role="alert"
+            aria-live="polite"
+          ></p>
+
+
+
+          <!-- =========================
+               AÇÕES
+          ========================== -->
+
+          <div class="cadastro-actions">
+
+            <button
+              class="cadastro-submit"
+              id="cadastroBtn"
+              type="submit"
+            >
+              <i data-lucide="user-plus"></i>
+              Criar conta
+            </button>
+
+
+            <a
+              class="cadastro-voltar"
+              href="login.html"
+            >
+              <i data-lucide="arrow-left"></i>
+              Voltar para o login
+            </a>
+
+          </div>
+
+        </form>
+
+
+        <p class="cadastro-footer-text">
+          suAIDPI • Apoio à Estratégia AIDPI
+        </p>
+
+      </div>
 
     </section>
 
   </main>
+
 
   <script
     type="module"
     src="js/auth.js"
   ></script>
 
+
+  <script>
+
+    window.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+
+      }
+    );
+
+  </script>
+
 </body>
+
 </html>

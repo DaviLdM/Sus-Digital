@@ -85,7 +85,7 @@ function evaluateChecklist() {
     badgePerigo.classList.add("vermelho");
     badgePerigo.innerText = "🔴 EMERGÊNCIA";
     document.getElementById("dangerClassification").innerText = `Classificação: Doença muito grave / emergência`;
-    document.getElementById("dangerAdvice").innerText = `Conduta: Referir URGENTEMENTE ao hospital. Administrar suporte (O₂ se disponível, primeiras doses conforme protocolo) e não adiar o encaminhamento. Anotações: ${obs || '—'}`;
+    document.getElementById("dangerAdvice").innerText = `Conduta: Referir URGENTEMENTE ao hospital. Administrar suporte, incluindo oxigênio se disponível e as primeiras doses conforme o protocolo, sem adiar o encaminhamento.`;
     
   }
 

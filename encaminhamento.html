@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>suAIDPI | Encaminhamento</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/encaminhamento.css">
+
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+  ></script>
+
+  <script type="module" src="js/protegerPagina.js"></script>
+  <script type="module" src="js/authState.js"></script>
+  <script type="module" src="js/logout.js"></script>
+  <script type="module" src="js/encaminhamento.js"></script>
+</head>
+
+
+<body class="encaminhamento-page">
+
+  <div class="app-shell">
+
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
+
+      <a class="brand" href="index.html" aria-label="Página inicial">
+        <img
+          src="images/icons/logoPrincipal.svg"
+          alt="Logo suAIDPI"
+        >
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Navegação principal">
+
+        <a class="nav-item" href="index.html">
+          <img
+            src="images/icons/home.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Início</span>
+        </a>
+
+        <a class="nav-item" href="avaliar.html">
+          <img
+            src="images/icons/add_box.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Novo Atendimento</span>
+        </a>
+
+        <!-- Substitui a antiga aba "Em Andamento" -->
+        <a
+          class="nav-item active"
+          href="encaminhamento.html"
+          aria-current="page"
+        >
+          <img
+            src="images/icons/send.svg"
+            alt=""
+            class="nav-icon"
+          >
+          <span>Encaminhamento</span>
+        </a>
+
+        <a class="nav-item" href="historico.html">
+          <img
+            src="images/icons/folder.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Histórico</span>
+        </a>
+
+        <a class="nav-item" href="material.html">
+          <img
+            src="images/icons/import_contacts.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Biblioteca AIDPI</span>
+        </a>
+
+        <a class="nav-item" href="quemSomos.html">
+          <img
+            src="images/icons/diversity_2.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Quem somos</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a class="nav-item" href="perfil.html">
+          <img
+            src="images/icons/person.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Perfil</span>
+        </a>
+
+        <a class="nav-item" href="configuracoes.html">
+          <img
+            src="images/icons/settings.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Configurações</span>
+        </a>
+
+        <a class="nav-item" href="ajuda.html">
+          <img
+            src="images/icons/help.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Ajuda e Suporte</span>
+        </a>
+
+      </nav>
+    </aside>
+
+
+    <!-- =========================
+         ÁREA DA PÁGINA
+    ========================== -->
+    <div class="page-area">
+
+      <!-- =========================
+           TOPO
+      ========================== -->
+      <header class="topbar">
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+          type="button"
+          aria-label="Abrir menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <div class="greeting-small">
+
+          <strong>
+            Olá,
+            <span id="homePrimeiroNome">carregando</span>!
+          </strong>
+
+          <span>
+            <i data-lucide="map-pin"></i>
+            <span id="homeUbs">Carregando unidade...</span>
+          </span>
+
+        </div>
+
+        <div class="user-actions">
+
+          <div
+            id="userMenu"
+            class="user-menu"
+            style="display:none"
+          >
+
+            <div
+              class="avatar"
+              id="homeAvatar"
+              aria-hidden="true"
+            >
+              US
+            </div>
+
+            <div class="user-copy">
+              <strong id="homeNomeCompleto">
+                Carregando usuário...
+              </strong>
+
+              <span id="homeProfissao">
+                Profissional de saúde
+              </span>
+            </div>
+
+            <button
+              class="chevron-button"
+              id="logoutBtn"
+              type="button"
+              title="Sair"
+              aria-label="Sair"
+            >
+              <i data-lucide="log-out"></i>
+            </button>
+
+          </div>
+
+        </div>
+      </header>
+
+
+      <!-- =========================
+           ENCAMINHAMENTO
+      ========================== -->
+      <main class="referral-main">
+
+        <div class="referral-heading">
+
+          <span
+            class="referral-heading-icon"
+            aria-hidden="true"
+          >
+            <i data-lucide="send"></i>
+          </span>
+
+          <div>
+            <h1>Encaminhamento</h1>
+            <p>
+              Selecione um atendimento, revise os dados e gere o documento de encaminhamento.
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             SELEÇÃO DA CONSULTA
+        ========================== -->
+        <section class="selector-card">
+
+          <div class="selector-heading">
+
+            <span class="selector-icon">
+              <i data-lucide="clipboard-list"></i>
+            </span>
+
+            <div>
+              <h2>Selecionar atendimento</h2>
+              <p>
+                Os dados da consulta selecionada serão preenchidos automaticamente.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="selector-controls">
+
+            <div class="field selector-field">
+              <label for="atendimentoSelect">
+                Atendimento
+              </label>
+
+              <select id="atendimentoSelect">
+                <option value="">
+                  Carregando atendimentos...
+                </option>
+              </select>
+            </div>
+
+            <button
+              class="btn-secondary"
+              id="carregarAtendimentoBtn"
+              type="button"
+            >
+              <i data-lucide="download"></i>
+              Carregar dados
+            </button>
+
+          </div>
+
+          <p
+            id="selectorMessage"
+            class="selector-message"
+            aria-live="polite"
+          ></p>
+
+        </section>
+
+
+        <!-- =========================
+             FORMULÁRIO
+        ========================== -->
+        <section class="referral-card">
+
+          <div class="document-heading">
+
+            <div>
+              <span class="document-label">
+                Documento
+              </span>
+
+              <h2>ENCAMINHAMENTO</h2>
+
+              <p>
+                Revise os dados antes de gerar o documento de encaminhamento.
+              </p>
+            </div>
+
+            <span class="document-status" id="documentStatus">
+              Aguardando atendimento
+            </span>
+
+          </div>
+
+
+          <form id="encaminhamentoForm">
+
+            <!-- DATA -->
+            <div class="form-section">
+
+              <div class="section-title">
+                <i data-lucide="calendar-days"></i>
+                <h3>Data do encaminhamento</h3>
+              </div>
+
+              <div class="form-grid form-grid-3">
+
+                <div class="field">
+                  <label for="dataEncaminhamento">
+                    Data
+                  </label>
+
+                  <input
+                    id="dataEncaminhamento"
+                    name="dataEncaminhamento"
+                    type="date"
+                    required
+                  >
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- PACIENTE -->
+            <div class="form-section">
+
+              <div class="section-title">
+                <i data-lucide="user-round"></i>
+                <h3>Dados do paciente</h3>
+              </div>
+
+              <div class="form-grid form-grid-2">
+
+                <div class="field field-full">
+                  <label for="pacienteNome">
+                    Paciente
+                  </label>
+
+                  <input
+                    id="pacienteNome"
+                    name="pacienteNome"
+                    type="text"
+                    required
+                  >
+                </div>
+
+                <div class="field">
+                  <label for="pacienteIdade">
+                    Idade
+                  </label>
+
+                  <input
+                    id="pacienteIdade"
+                    name="pacienteIdade"
+                    type="text"
+                  >
+                </div>
+
+                <div class="field">
+                  <label for="pacienteNascimento">
+                    Data de nascimento
+                  </label>
+
+                  <input
+                    id="pacienteNascimento"
+                    name="pacienteNascimento"
+                    type="date"
+                    required
+                  >
+
+                  <small class="field-help">
+                    Obrigatório para gerar o encaminhamento.
+                  </small>
+                </div>
+
+                <div class="field">
+                  <label for="pacienteCpf">
+                    CPF
+                  </label>
+
+                  <input
+                    id="pacienteCpf"
+                    name="pacienteCpf"
+                    type="text"
+                    placeholder="Não informado"
+                  >
+                </div>
+
+                <div class="field">
+                  <label for="acompanhante">
+                    Acompanhante
+                  </label>
+
+                  <input
+                    id="acompanhante"
+                    name="acompanhante"
+                    type="text"
+                    placeholder="Nome do responsável/acompanhante"
+                    required
+                  >
+
+                  <small class="field-help">
+                    Obrigatório para gerar o encaminhamento.
+                  </small>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- ORIGEM / DESTINO -->
+            <div class="form-section">
+
+              <div class="section-title">
+                <i data-lucide="hospital"></i>
+                <h3>Origem e destino</h3>
+              </div>
+
+              <div class="form-grid form-grid-2">
+
+                <div class="field">
+                  <label for="unidadeAtendimento">
+                    Unidade de atendimento
+                  </label>
+
+                  <input
+                    id="unidadeAtendimento"
+                    name="unidadeAtendimento"
+                    type="text"
+                  >
+                </div>
+
+                <div class="field">
+                  <label for="hospitalDestino">
+                    Hospital de referência
+                  </label>
+
+                  <input
+                    id="hospitalDestino"
+                    name="hospitalDestino"
+                    type="text"
+                    placeholder="Hospital de referência"
+                  >
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- QUEIXA -->
+            <div class="form-section">
+
+              <div class="section-title">
+                <i data-lucide="message-square-text"></i>
+                <h3>Queixa principal</h3>
+              </div>
+
+              <div class="field">
+                <label for="queixaPrincipal">
+                  Apresentando como queixa principal:
+                </label>
+
+                <textarea
+                  id="queixaPrincipal"
+                  name="queixaPrincipal"
+                  rows="4"
+                  placeholder="Queixa principal registrada no atendimento"
+                ></textarea>
+              </div>
+
+            </div>
+
+
+            <!-- SINAIS -->
+            <div class="form-section">
+
+              <div class="section-title">
+                <i data-lucide="stethoscope"></i>
+                <h3>Sinais e sintomas identificados</h3>
+              </div>
+
+              <div class="field">
+                <label for="sinaisSintomas">
+                  Durante a avaliação, foram identificados os seguintes sinais e sintomas:
+                </label>
+
+                <textarea
+                  id="sinaisSintomas"
+                  name="sinaisSintomas"
+                  rows="7"
+                ></textarea>
+              </div>
+
+            </div>
+
+
+            <!-- CLASSIFICAÇÃO -->
+            <div class="form-section">
+
+              <div class="section-title">
+                <i data-lucide="tags"></i>
+                <h3>Classificação AIDPI</h3>
+              </div>
+
+              <div class="field">
+                <label for="classificacoes">
+                  Após avaliação conforme estratégia AIDPI, o(a) paciente foi classificado(a) como:
+                </label>
+
+                <textarea
+                  id="classificacoes"
+                  name="classificacoes"
+                  rows="5"
+                ></textarea>
+              </div>
+
+            </div>
+
+
+            <!-- CONDUTAS -->
+            <div class="form-section">
+
+              <div class="section-title">
+                <i data-lucide="clipboard-check"></i>
+                <h3>Condutas e orientações</h3>
+              </div>
+
+              <div class="field">
+                <label for="condutas">
+                  Foram realizadas as seguintes condutas e orientações:
+                </label>
+
+                <textarea
+                  id="condutas"
+                  name="condutas"
+                  rows="8"
+                ></textarea>
+              </div>
+
+            </div>
+
+
+            <!-- AÇÕES -->
+            <div
+              id="formMessage"
+              class="form-message"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+            <div class="form-actions">
+
+              <button
+                class="btn-secondary"
+                id="restaurarBtn"
+                type="button"
+              >
+                <i data-lucide="rotate-ccw"></i>
+                Restaurar dados
+              </button>
+
+              <button
+                class="btn-primary"
+                id="gerarPdfBtn"
+                type="submit"
+              >
+                <i data-lucide="file-down"></i>
+                Gerar encaminhamento em PDF
+              </button>
+
+            </div>
+
+          </form>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <script>
+    window.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+
+        const menuButton =
+          document.getElementById("mobileMenu");
+
+        const sidebar =
+          document.getElementById("sidebar");
+
+        menuButton?.addEventListener(
+          "click",
+          () => {
+            sidebar?.classList.toggle("open");
+          }
+        );
+
+      }
+    );
+  </script>
+
+</body>
+
+</html>

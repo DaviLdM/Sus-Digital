@@ -1,231 +1,819 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Somos - PET Saúde Digital</title>
+  <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="css/style.css">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <style>
-        .quem-somos-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 30px;
-        }
+  <title>suAIDPI | Quem Somos</title>
 
-        .quem-somos-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 50px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        .quem-somos-card h1 {
-            color: #384c84;
-            text-align: center;
-            margin-bottom: 10px;
-        }
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-        .subtitulo {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-        }
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quemSomos.css">
 
-        .quem-somos-card p {
-            line-height: 1.8;
-            font-size: 1.05rem;
-            text-align: justify;
-            color: #333;
-        }
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
 
-        .destaque {
-            color: #384c84;
-            font-weight: bold;
-        }
-
-        .acoes {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .equipe {
-            margin-top: 60px;
-        }
-
-        .equipe h2 {
-            text-align: center;
-            color: #384c84;
-            margin-bottom: 35px;
-        }
-        .equipe h3{
-            color:#384c84;
-            margin-top:45px;
-            margin-bottom:20px;
-            text-align:center;
-            font-size:1.5rem;
-        }
-
-        .integrantes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .integrante {
-            width: 170px;
-            text-align: center;
-        }
-
-        .integrante img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #384c84;
-            box-shadow: 0 4px 12px rgba(0,0,0,.15);
-            transition: transform .25s;
-        }
-
-        .integrante img:hover {
-            transform: scale(1.05);
-        }
-
-        .integrante h3{
-            margin-top:12px;
-            font-size:1rem;
-            color:#333;
-        }
-
-        .integrante p {
-            margin-top: 4px;
-            font-size: .9rem;
-            color: #777;
-            text-align: center;
-        }
-
-    </style>
+  <script type="module" src="js/protegerPagina.js"></script>
+  <script type="module" src="js/authState.js"></script>
+  <script type="module" src="js/logout.js"></script>
 </head>
+
 
 <body class="quem-somos-page">
 
-    <header class="header-secundario">
+  <div class="app-shell">
+
+
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+
+    <aside
+      class="sidebar"
+      id="sidebar"
+    >
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Página inicial"
+      >
         <img
-            src="images/logoSecundaria.png"
-            alt="Logo PET Saúde Digital"
-            class="logoSecundaria"
+          src="images/icons/logoPrincipal.svg"
+          alt="Logo suAIDPI"
         >
-        <h1>PET Saúde Digital</h1>
-    </header>
+      </a>
 
-    <main class="quem-somos-container">
 
-        <section class="quem-somos-card">
+      <nav
+        class="sidebar-nav"
+        aria-label="Navegação principal"
+      >
 
-            <h1>Quem Somos</h1>
+        <a class="nav-item" href="index.html">
+          <img
+            src="images/icons/home.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Início</span>
+        </a>
 
-            <p class="subtitulo">
-                Conheça a equipe responsável pelo desenvolvimento da plataforma.
+
+        <a class="nav-item" href="avaliar.html">
+          <img
+            src="images/icons/add_box.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Novo Atendimento</span>
+        </a>
+
+
+        <a class="nav-item" href="encaminhamento.html">
+          <img
+            src="images/icons/send.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Encaminhamento</span>
+        </a>
+
+
+        <a class="nav-item" href="historico.html">
+          <img
+            src="images/icons/folder.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Histórico</span>
+        </a>
+
+
+        <a class="nav-item" href="material.html">
+          <img
+            src="images/icons/import_contacts.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Biblioteca AIDPI</span>
+        </a>
+
+
+        <a
+          class="nav-item active"
+          href="quemSomos.html"
+          aria-current="page"
+        >
+          <img
+            src="images/icons/diversity_2.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Quem somos</span>
+        </a>
+
+
+        <div class="nav-divider"></div>
+
+
+        <a class="nav-item" href="perfil.html">
+          <img
+            src="images/icons/person.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Perfil</span>
+        </a>
+
+
+        <a class="nav-item" href="configuracoes.html">
+          <img
+            src="images/icons/settings.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Configurações</span>
+        </a>
+
+
+        <a class="nav-item" href="ajuda.html">
+          <img
+            src="images/icons/help.svg"
+            alt=""
+            class="nav-icon"
+            aria-hidden="true"
+          >
+          <span>Ajuda e Suporte</span>
+        </a>
+
+      </nav>
+
+    </aside>
+
+
+
+    <!-- =========================
+         CONTEÚDO DA PÁGINA
+    ========================== -->
+
+    <div class="page-area">
+
+
+      <!-- =========================
+           TOPO
+      ========================== -->
+
+      <header class="topbar">
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+          type="button"
+          aria-label="Abrir menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+
+        <div class="greeting-small">
+
+          <strong>
+            Olá,
+            <span id="homePrimeiroNome">carregando</span>!
+          </strong>
+
+          <span>
+            <i data-lucide="map-pin"></i>
+            <span id="homeUbs">
+              Carregando unidade...
+            </span>
+          </span>
+
+        </div>
+
+
+        <div class="user-actions">
+
+          <div
+            id="userMenu"
+            class="user-menu"
+            style="display:none"
+          >
+
+            <div
+              class="avatar"
+              id="homeAvatar"
+              aria-hidden="true"
+            >
+              US
+            </div>
+
+
+            <div class="user-copy">
+
+              <strong id="homeNomeCompleto">
+                Carregando usuário...
+              </strong>
+
+              <span id="homeProfissao">
+                Profissional de saúde
+              </span>
+
+            </div>
+
+
+            <button
+              class="chevron-button"
+              id="logoutBtn"
+              type="button"
+              title="Sair"
+              aria-label="Sair"
+            >
+              <i data-lucide="log-out"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- =========================
+           QUEM SOMOS
+      ========================== -->
+
+      <main class="about-main">
+
+
+        <!-- APRESENTAÇÃO -->
+
+        <section class="about-intro">
+
+          <h1>
+            Quem Somos
+          </h1>
+
+          <p>
+            O suAIDPI é uma tecnologia digital desenvolvida no âmbito do
+            <strong>PET-Saúde: Informação e Saúde Digital</strong>,
+            com o propósito de apoiar profissionais da Atenção Primária à Saúde
+            na aplicação da estratégia AIDPI durante o atendimento infantil.
+            Unindo saúde, tecnologia e design, o projeto busca tornar o acesso às
+            etapas da estratégia mais claro, organizado e eficiente, contribuindo
+            para a qualificação do cuidado à criança.
+          </p>
+
+        </section>
+
+
+
+        <!-- CARDS INFORMATIVOS -->
+
+        <section class="info-grid">
+
+          <article class="info-card info-card-blue">
+
+            <h2>
+              Sobre o PET-Saúde Digital
+            </h2>
+
+            <p>
+              O Programa de Educação pelo Trabalho para a Saúde:
+              Informação e Saúde Digital (PET-Saúde/I&SD) é uma iniciativa
+              do Ministério da Saúde em parceria com o Ministério da Educação,
+              que promove a integração entre ensino, serviços de saúde e
+              comunidade, com foco na transformação digital do SUS.
             </p>
 
             <p>
-                Somos uma equipe multidisciplinar vinculada ao
-                <span class="destaque">PET Saúde Digital da Universidade Federal de Campina Grande (UFCG)</span>,
-                formada por estudantes das áreas de Enfermagem, Medicina, Design,
-                Engenharia Elétrica e Ciência da Computação, além de professoras
-                da universidade e profissionais da saúde.
+              O programa estimula a formação interdisciplinar, o uso ético
+              e crítico das tecnologias e o desenvolvimento de soluções digitais
+              capazes de contribuir para a melhoria dos serviços e das práticas
+              de cuidado em saúde.
             </p>
 
-            <br>
+          </article>
+
+
+          <article class="info-card info-card-green">
+
+            <h2>
+              Conheça o GAT 3
+            </h2>
 
             <p>
-                Ao unir conhecimentos em saúde, tecnologia, inovação e design,
-                nosso projeto tem como objetivo o desenvolvimento de um software
-                para apoiar a aplicabilidade da
-                <span class="destaque">
-                    Estratégia de Atenção Integrada às Doenças Prevalentes na Infância (AIDPI)
-                </span>,
-                buscando facilitar a tomada de decisão clínica, promover a educação
-                em saúde e contribuir para a melhoria da qualidade do atendimento
-                prestado às crianças.
+              O Grupo de Aprendizagem Tutorial 3 (GAT 3) atua no desenvolvimento
+              de uma tecnologia digital interoperável para auxiliar profissionais
+              de saúde na aplicação da estratégia AIDPI – Atenção Integrada às
+              Doenças Prevalentes na Infância, no contexto da Atenção Primária à Saúde.
             </p>
 
-            <div class="acoes">
-                <a href="index.html" class="btn-voltar">Voltar à Página Inicial</a>
-            </div>
+            <p>
+              A proposta reúne diferentes áreas do conhecimento no desenvolvimento
+              do suAIDPI, buscando transformar as etapas e os conteúdos da estratégia
+              AIDPI em uma experiência digital clara, acessível e organizada, capaz
+              de orientar o profissional durante a consulta à criança.
+            </p>
 
-        </section>
-        <section class="equipe">
-
-            <h2>Nossa Equipe</h2>
-
-            <h3>Monitores</h3>
-
-            <div class="integrantes">
-
-                <div class="integrante">
-                    <img src="images/fotos_individuais/davi.jpeg" alt="Davi Lima">
-                    <h3>Davi Lima</h3>
-                    <p>Ciência da Computação</p>
-                </div>
-
-                <div class="integrante">
-                    <img src="images/fotos_individuais/euany.jpeg" alt="Euany">
-                    <h3>Euany</h3>
-                    <p>Enfermagem</p>
-                </div>
-
-                <div class="integrante">
-                    <img src="images/fotos_individuais/mariana.jpeg" alt="Mariana">
-                    <h3>Mariana</h3>
-                    <p>Enfermagem</p>
-                </div>
-
-                <div class="integrante">
-                    <img src="images/fotos_individuais/karen.jpeg" alt="Karen">
-                    <h3>Karen</h3>
-                    <p>Enfermagem</p>
-                </div>
-
-
-
-            </div>
-
-            <h3>Preceptores</h3>
-
-            <div class="integrantes">   
-
-
-                <div class="integrante">
-                    <img src="images/fotos_individuais/socorro.jpeg" alt="Socorro">
-                    <h3>Socorro</h3>
-                    <p>Enfermagem</p>
-                </div>
-
-
-
-            </div>
-           
-            <h3>Cordenação</h3>
-            
-            
-            <div class="integrantes">
-
-
-                <div class="integrante">
-                    <img src="images/fotos_individuais/silvana.jpeg" alt="Silvana">
-                    <h3>Silvana</h3>
-                    <p>Enfermagem</p>
-                </div>
-
-            </div>
+          </article>
 
         </section>
 
-    </main>
+
+
+        <!-- CONSTRUÇÃO INTERDISCIPLINAR -->
+
+        <section class="interdisciplinary-section">
+
+          <h2>
+            Uma construção interdisciplinar
+          </h2>
+
+          <p>
+            O desenvolvimento do suAIDPI envolve conhecimentos de diferentes áreas,
+            aproximando saúde e tecnologia em um processo colaborativo de pesquisa,
+            aprendizagem e desenvolvimento.
+          </p>
+
+          <p>
+            Essa integração permite pensar o sistema não apenas do ponto de vista
+            tecnológico, mas também considerando as necessidades dos profissionais,
+            a organização das informações e o contexto real de utilização nos
+            serviços de saúde.
+          </p>
+
+
+          
+          <div class="team-photo-wrapper">
+            <img
+              src="images/fotos_individuais/equipe.jpeg"
+              alt="Equipe do PET Saúde Digital"
+              class="team-photo"
+              onerror="this.parentElement.classList.add('photo-missing'); this.style.display='none';"
+            >
+
+            <div class="team-photo-placeholder">
+              <i data-lucide="users"></i>
+
+              <span>
+                Adicione a foto coletiva em
+                <strong>images/equipe.jpeg</strong>
+              </span>
+            </div>
+          </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             NOSSA EQUIPE
+        ========================== -->
+
+        <section class="team-section">
+
+          <div class="team-heading">
+
+            <h2>
+              Nossa Equipe
+            </h2>
+
+            <p>
+              Conheça as pessoas que fazem parte do GAT 3 e contribuem
+              para a construção do suAIDPI.
+            </p>
+
+          </div>
+
+
+
+          <!-- COORDENAÇÃO -->
+
+          <div class="team-group">
+
+            <h3 class="team-group-title">
+              Coordenação/tutoria
+            </h3>
+
+
+            <div class="members members-two">
+
+
+              <article class="member">
+
+                <div class="member-photo">
+
+                  <img
+                    src="images/fotos_individuais/luzibenia.jpeg"
+                    alt="Luzibênia Leal"
+                  >
+
+                </div>
+
+                <h4>
+                  Luzibênia Leal
+                </h4>
+
+                <p>
+                  Enfermeira
+                </p>
+
+              </article>
+
+
+
+              <article class="member">
+
+                <div class="member-photo">
+
+                  <img
+                    src="images/fotos_individuais/silvana.jpeg"
+                    alt="Silvana Rodrigues"
+                  >
+
+                </div>
+
+                <h4>
+                  Silvana Rodrigues
+                </h4>
+
+                <p>
+                  Enfermeira
+                </p>
+
+              </article>
+
+
+            </div>
+
+          </div>
+
+
+
+          <!-- PRECEPTORIA -->
+
+          <div class="team-group">
+
+            <h3 class="team-group-title">
+              Preceptoria
+            </h3>
+
+
+            <div class="members members-two">
+
+
+              <article class="member">
+
+                <div class="member-photo">
+
+                  <img
+                    src="images/fotos_individuais/geuma.jpeg"
+                    alt="Geuma Marques"
+                  >
+
+                </div>
+
+                <h4>
+                  Geuma Marques
+                </h4>
+
+                <p>
+                  Enfermeira
+                </p>
+
+              </article>
+
+
+
+              <article class="member">
+
+                <div class="member-photo">
+
+                  <img
+                    src="images/fotos_individuais/socorro.jpeg"
+                    alt="Socorro de Oliveira"
+                  >
+
+                </div>
+
+                <h4>
+                  Socorro de Oliveira
+                </h4>
+
+                <p>
+                  Enfermeira
+                </p>
+
+              </article>
+
+
+            </div>
+
+          </div>
+
+
+
+          <!-- MONITORES -->
+
+          <div class="team-group monitors-group">
+
+            <h3 class="team-group-title">
+              Monitores
+            </h3>
+
+
+            <div class="members members-monitors">
+
+
+              <article class="member">
+
+                <div class="member-photo">
+                  <img
+                    src="images/fotos_individuais/davi.jpeg"
+                    alt="Davi Lima"
+                  >
+                </div>
+
+                <h4>Davi Lima</h4>
+
+                <p>
+                  Ciências da<br>
+                  Computação
+                </p>
+
+              </article>
+
+
+
+              <article class="member">
+
+                <div class="member-photo">
+                  <img
+                    src="images/fotos_individuais/debora.jpeg"
+                    alt="Débora Oliveira"
+                  >
+                </div>
+
+                <h4>Débora Oliveira</h4>
+                <p>Enfermagem</p>
+
+              </article>
+
+
+
+              <article class="member">
+
+                <div class="member-photo">
+                  <img
+                    src="images/fotos_individuais/euany.jpeg"
+                    alt="Euany Bezerra"
+                  >
+                </div>
+
+                <h4>Euany Bezerra</h4>
+                <p>Enfermagem</p>
+
+              </article>
+
+
+
+              <article class="member">
+
+                <div class="member-photo">
+                  <img
+                    src="images/fotos_individuais/gabrielli.jpg"
+                    alt="Gabrielli Batista"
+                  >
+                </div>
+
+                <h4>Gabrielli Batista</h4>
+                <p>Enfermagem</p>
+
+              </article>
+
+
+
+              <article class="member">
+
+                <div class="member-photo">
+                  <img
+                    src="images/fotos_individuais/karen.jpeg"
+                    alt="Karen Melo"
+                  >
+                </div>
+
+                <h4>Karen Melo</h4>
+                <p>Enfermagem</p>
+
+              </article>
+
+
+
+              <article class="member">
+
+                <div class="member-photo">
+                  <img
+                    src="images/fotos_individuais/mariana.jpeg"
+                    alt="Mariana Fablício"
+                  >
+                </div>
+
+                <h4>Mariana Fablício</h4>
+                <p>Enfermagem</p>
+
+              </article>
+
+
+
+              <!--
+                A imagem enviada da pasta não mostra um arquivo do Maycon.
+                Quando tiver a foto, basta trocar o placeholder abaixo por:
+                <img src="images/fotos_individuais/NOME_DO_ARQUIVO.jpeg" alt="Maycon Clementino">
+              -->
+              <article class="member">
+
+                <div class="member-photo member-placeholder">
+                  <span>MC</span>
+                </div>
+
+                <h4>Maycon Clementino</h4>
+
+                <p>
+                  Engenharia<br>
+                  Elétrica
+                </p>
+
+              </article>
+
+
+
+              
+              <article class="member">
+
+                <div class="member-photo">
+                  <img
+                    src="images/fotos_individuais/vitoria.jpeg"
+                    alt="Vitória Manuela"
+                  >
+                </div>
+
+                <h4>Vitória Manuela</h4>
+                <p>Medicina</p>
+
+              </article>
+
+
+
+              <article class="member">
+
+                <div class="member-photo">
+                  <img
+                    src="images/fotos_individuais/wesley.jpeg"
+                    alt="Wesley Melo"
+                  >
+                </div>
+
+                <h4>Wesley Melo</h4>
+                <p>Design</p>
+
+              </article>
+
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- FRASE 
+
+        <section class="team-message">
+
+          <i data-lucide="badge-plus"></i>
+
+          <p>
+            Saúde, tecnologia e pessoas conectadas para transformar o cuidado infantil.
+          </p>
+
+        </section> -->
+
+
+
+        <!-- RODAPÉ 
+
+        <footer class="about-footer">
+
+          <div class="footer-logo">
+
+            <img
+              src="images/icons/logoPrincipal.svg"
+              alt="Logo suAIDPI"
+            >
+
+          </div>
+
+
+          <div class="footer-copy">
+
+            <p>
+              Suporte na Atenção Integrada às Doenças Prevalentes na Infância (suAIDPI),
+              desenvolvido para auxiliar profissionais da Atenção Primária à Saúde.
+            </p>
+
+          </div>
+
+
+          <div class="footer-project">
+
+            <strong>
+              suAIDPI © 2026
+            </strong>
+
+            <span>
+              Desenvolvido pelo GAT 3 do PET-Saúde Digital - UFCG
+            </span>
+
+            <span>
+              Ajude | Termos de uso | Política de Privacidade
+            </span>
+
+          </div>
+
+        </footer>   -->
+
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================
+       INTERFACE
+  ========================== -->
+
+  <script>
+
+    window.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+
+
+        const menuButton =
+          document.getElementById("mobileMenu");
+
+
+        const sidebar =
+          document.getElementById("sidebar");
+
+
+        menuButton?.addEventListener(
+          "click",
+          () => {
+
+            sidebar?.classList.toggle("open");
+
+          }
+        );
+
+      }
+    );
+
+  </script>
 
 </body>
-</html>
 
+</html>

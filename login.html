@@ -6,101 +6,361 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Login - suAIDPI</title>
+  <title>suAIDPI | Login</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/login.css">
+
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer
+  ></script>
 </head>
+
 
 <body class="login-page">
 
-  <main class="login-container">
+  <main class="login-shell">
 
-    <section class="login-card">
 
-      <h1>Entrar</h1>
+    <!-- =========================
+         LADO VISUAL / IDENTIDADE
+    ========================== -->
 
-      <form id="loginForm">
+    <section class="login-brand-panel">
 
-        <div class="login-field">
-          <label for="email">
-            E-mail
-          </label>
+      <div class="brand-content">
 
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Digite seu e-mail"
-            autocomplete="email"
-            required
+        <a
+          class="login-logo"
+          href="index.html"
+          aria-label="Página inicial"
+        >
+          <img
+            src="images/icons/logoPrincipal.svg"
+            alt="Logo suAIDPI"
           >
+        </a>
+
+
+        <div class="brand-copy">
+
+          <span class="brand-badge">
+            Estratégia AIDPI
+          </span>
+
+          <h1>
+            Cuidado infantil com informação organizada e acessível.
+          </h1>
+
+          <p>
+            Acesse sua conta para continuar seus atendimentos,
+            consultar o histórico e utilizar os recursos do suAIDPI.
+          </p>
+
         </div>
 
-        <div class="login-field">
-          <label for="senha">
-            Senha
-          </label>
 
-          <input
-            type="password"
-            id="senha"
-            name="senha"
-            placeholder="Digite sua senha"
-            autocomplete="current-password"
-            required
-          >
+        <div class="brand-features">
+
+          <div class="brand-feature">
+
+            <span class="brand-feature-icon">
+              <i data-lucide="clipboard-check"></i>
+            </span>
+
+            <div>
+              <strong>Avaliação organizada</strong>
+
+              <span>
+                Registre e acompanhe as informações do atendimento.
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="brand-feature">
+
+            <span class="brand-feature-icon">
+              <i data-lucide="folder-clock"></i>
+            </span>
+
+            <div>
+              <strong>Histórico de atendimentos</strong>
+
+              <span>
+                Consulte rapidamente as avaliações já realizadas.
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="brand-feature">
+
+            <span class="brand-feature-icon">
+              <i data-lucide="file-text"></i>
+            </span>
+
+            <div>
+              <strong>Documentos do atendimento</strong>
+
+              <span>
+                Gere relatórios e encaminhamentos a partir dos dados registrados.
+              </span>
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="recuperar-senha-container">
-          <button
-            type="button"
-            id="recuperarSenhaBtn"
-            class="recuperar-senha-btn"
+      </div>
+
+
+      <div class="brand-decoration brand-decoration-one"></div>
+      <div class="brand-decoration brand-decoration-two"></div>
+
+    </section>
+
+
+
+    <!-- =========================
+         LOGIN
+    ========================== -->
+
+    <section class="login-form-panel">
+
+      <div class="login-card">
+
+
+        <div class="login-mobile-logo">
+
+          <img
+            src="images/icons/logoPrincipal.svg"
+            alt="Logo suAIDPI"
           >
-            Esqueci minha senha
-          </button>
+
         </div>
 
-        <div class="login-actions">
 
-          <button
-            type="submit"
-            id="loginBtn"
-            class="login-submit"
+        <header class="login-header">
+
+          <span
+            class="login-header-icon"
+            aria-hidden="true"
           >
-            Entrar
-          </button>
+            <i data-lucide="log-in"></i>
+          </span>
+
+          <div>
+
+            <h2>
+              Entrar
+            </h2>
+
+            <p>
+              Acesse sua conta para continuar utilizando o suAIDPI.
+            </p>
+
+          </div>
+
+        </header>
+
+
+
+        <form
+          id="loginForm"
+          class="login-form"
+        >
+
+
+          <!-- =========================
+               E-MAIL
+          ========================== -->
+
+          <div class="login-field">
+
+            <label for="email">
+              E-mail
+            </label>
+
+            <div class="input-with-icon">
+
+              <i
+                data-lucide="mail"
+                aria-hidden="true"
+              ></i>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite seu e-mail"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =========================
+               SENHA
+          ========================== -->
+
+          <div class="login-field">
+
+            <label for="senha">
+              Senha
+            </label>
+
+            <div class="input-with-icon">
+
+              <i
+                data-lucide="lock-keyhole"
+                aria-hidden="true"
+              ></i>
+
+              <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite sua senha"
+                autocomplete="current-password"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =========================
+               RECUPERAR SENHA
+          ========================== -->
+
+          <div class="recuperar-senha-container">
+
+            <button
+              type="button"
+              id="recuperarSenhaBtn"
+              class="recuperar-senha-btn"
+            >
+              Esqueci minha senha
+            </button>
+
+          </div>
+
+
+
+          <!-- =========================
+               MENSAGEM
+          ========================== -->
+
+          <p
+            id="mensagem"
+            class="login-message"
+            role="alert"
+            aria-live="polite"
+          ></p>
+
+
+
+          <!-- =========================
+               AÇÕES
+          ========================== -->
+
+          <div class="login-actions">
+
+            <button
+              type="submit"
+              id="loginBtn"
+              class="login-submit"
+            >
+              <i data-lucide="log-in"></i>
+              Entrar
+            </button>
+
+
+            <a
+              href="cadastro.html"
+              class="login-cadastro"
+            >
+              <i data-lucide="user-plus"></i>
+              Criar uma conta
+            </a>
+
+          </div>
+
+
+          <div class="login-divider">
+
+            <span>
+              ou
+            </span>
+
+          </div>
+
 
           <a
             href="index.html"
             class="login-voltar"
           >
+            <i data-lucide="arrow-left"></i>
             Voltar à página inicial
           </a>
 
-        </div>
 
-        <p
-          id="mensagem"
-          class="login-message"
-          role="alert"
-          aria-live="polite"
-        ></p>
+        </form>
 
-      </form>
+
+        <p class="login-footer-text">
+          suAIDPI • Apoio à Estratégia AIDPI
+        </p>
+
+      </div>
 
     </section>
 
   </main>
+
 
   <script
     type="module"
     src="js/auth.js"
   ></script>
 
+
+  <script>
+
+    window.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+
+      }
+    );
+
+  </script>
+
 </body>
+
 </html>
